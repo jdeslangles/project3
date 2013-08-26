@@ -1,3 +1,19 @@
 // Place all the styles related to the markers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.map_border{
+  padding:1em;
+  background: #EEEEEE;
+  width: 630px;
+}
+
+#googleMap{
+  width:630px;
+  height:380px;
+}
+
+.map_wrapper{
+  display: inline-block;
+  width: 40em;
+}
