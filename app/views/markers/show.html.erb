@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@marker.latitude}%2C#{@marker.longitude}" %>
+
+<p>
+  <b>Name:</b>
+  <%= @marker.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @marker.description %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%= @marker.address %>
+</p>
+
+<p>
+  <b>Latitude:</b>
+  <%= @marker.latitude %>
+</p>
+
+<p>
+  <b>Longitude:</b>
+  <%= @marker.longitude %>
+</p>
+
+
+<%= link_to 'Edit', edit_marker_path(@marker) %> |
+<%= link_to 'Back', markers_path %>
