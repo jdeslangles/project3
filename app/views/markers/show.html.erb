@@ -31,6 +31,11 @@
   <b>Longitude:</b>
   <span><%= @marker.longitude %></span>
 </p>
+
+<p>
+  <b>Trip:</b>
+  <%= link_to @marker.trip.name, trip_path(@marker.trip_id) %>
+</p>
 </div>
 
 <div>
