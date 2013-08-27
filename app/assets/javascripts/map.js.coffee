@@ -26,5 +26,4 @@ $ ->
 
 #   canvas = document.getElementById("googleMap");
 #   map = new google.maps.Map(canvas, mapOptions);
-
 # });
