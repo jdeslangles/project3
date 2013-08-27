@@ -14,10 +14,16 @@ class TripsController < ApplicationController
   # GET /trips/1.json
   def show
     @trip = Trip.find(params[:id])
+    @markers = Marker.where(trip_id: @trip.id)
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @trip }
+      format.json {
+        render :json => {
+          :trip => @trip,
+          :markers => @markers
+          }
+        }
     end
   end
 

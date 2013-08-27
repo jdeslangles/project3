@@ -14,10 +14,16 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @user = User.find(params[:id])
+    @trips = Trip.where(user_id: @user.id)
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @user }
+      format.json {
+        render :json => {
+          :user => @user,
+          :trips => @trips
+          }
+        }
     end
   end
 
