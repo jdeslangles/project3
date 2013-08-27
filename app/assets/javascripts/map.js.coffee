@@ -10,6 +10,10 @@ $ ->
   canvas = document.getElementById("googleMap")
   window.map = map = new google.maps.Map(canvas, mapOptions)
 
+  marker = new google.maps.Marker
+    position: mapOptions.center
+    map: map
+
 
 #   $(function(){
 #   var mapOptions,
@@ -24,7 +28,3 @@ $ ->
 #     center: new google.maps.LatLng(latitude, longitude),
 #     mapTypeId: google.maps.MapTypeId.ROADMAP
 #   };
-
-#   canvas = document.getElementById("googleMap");
-#   map = new google.maps.Map(canvas, mapOptions);
-# });
