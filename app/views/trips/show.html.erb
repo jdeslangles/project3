@@ -22,11 +22,16 @@
 </p>
 
 <p>
-  <b>User:</b>
-  <%= @trip.user %>
+  <b>Trip Creator:</b>
+  <%=link_to @trip.user.firstname, user_path(@trip.user_id)%>
 </p>
 
-
+<p>
+  <b>Trip Stops:</b>
+  <ul> <% @trip.markers.each do |marker| %>
+    <li><%= link_to marker.name, marker_path(marker.id) %></li>
+            <%end%>
+</p>
 
 <%= link_to 'Edit', edit_trip_path(@trip) %> |
 <%= link_to 'Back', trips_path %>
