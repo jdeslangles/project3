@@ -28,7 +28,7 @@ $ ->
   trip_stops = draw_markers()
   trip_path = new google.maps.Polyline
     path: trip_stops
-    strokeColor: "red"
+    strokeColor: "#7c2849"
     strokeWeight: 2
 
   trip_path.setMap map
