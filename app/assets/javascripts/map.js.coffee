@@ -1,24 +1,22 @@
 $ ->
-  # latitude = $("#latitude span").text()
-  # longitude = $("#longitude span").text()
   mapOptions =
     zoom: 10
-    center: new google.maps.LatLng(10, 106)
+    # center: new google.maps.LatLng(10, 106)
     mapTypeId: google.maps.MapTypeId.ROADMAP
     scrollwheel: false
 
   canvas = document.getElementById("googleMap")
   map = new google.maps.Map(canvas, mapOptions)
 
-
+  bounds = new google.maps.LatLngBounds
   for marker in window.markers
-    myLatlng = new google.maps.LatLng(marker.latitude, marker.longitude)
+    myLatLng = new google.maps.LatLng(marker.latitude, marker.longitude)
     new google.maps.Marker
-      position: myLatlng
+      position: myLatLng
       map: map
       title: marker.name
-    console.log marker
-
+    bounds.extend(myLatLng)
+    map.fitBounds(bounds)
 
 
 #   $(function(){
