@@ -3,4 +3,5 @@ class Marker < ActiveRecord::Base
   attr_accessible :address, :description, :latitude, :longitude, :name, :trip
   geocoded_by :address
   after_validation :geocode, :if => :address_changed?
+  acts_as_gmappable
 end

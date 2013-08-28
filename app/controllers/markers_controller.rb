@@ -14,7 +14,6 @@ class MarkersController < ApplicationController
   # GET /markers/1.json
   def show
     @marker = Marker.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @marker }
