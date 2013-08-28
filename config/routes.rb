@@ -1,12 +1,15 @@
 TravelBlog::Application.routes.draw do
+  devise_for :users
+
+  devise_scope :user do
+    get '/login', to: 'devise/sessions#new'
+  end
+
   resources :markers
-
-
   resources :users
-
-
   resources :trips
 
+  get '/my_profile', to: 'users#my_profile', as: :my_profile
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

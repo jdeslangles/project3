@@ -8,6 +8,7 @@ gem 'rails', '3.2.14'
 gem 'pg'
 gem 'geocoder'
 gem 'gmaps4rails'
+gem 'devise'
 
 group :development do
   # gem 'rspec-rails'

@@ -10,6 +10,11 @@ class UsersController < ApplicationController
     end
   end
 
+  def my_profile
+    @user = current_user
+    render :show
+  end
+
   # GET /users/1
   # GET /users/1.json
   def show
