@@ -8,6 +8,44 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div class="navbar navbar-inverse">
+    <nav class="navbar-inner">
+      <ul class ="nav">
+        <li class="active"><%= link_to("FootSteps", users_path) %></li>
+
+        <li><%= link_to('Trips', trips_path)  %></li>
+
+        <li><%= link_to('Markers', markers_path)  %></li>
+<!--         < % if current_user %>
+          <li>< %= link_to('My Profile', my_profile_path) %></li>
+        < % end %> -->
+      </ul>
+
+
+<!--       <ul class="nav pull-right">
+        <li>
+          < %= form_tag search_path, class:"navbar-search pull-left", html: {method: :post} do |f| %>
+            < %= text_field_tag :q, params[:q], class:"search-query" %>
+            < %= submit_tag 'Search!' , name: nil,  class:"btn btn-inverse btn-small" %>
+          < % end %>
+        </li>
+        < % unless current_user %>
+        <li class="nav-signup">< %= link_to('Sign up', new_user_registration_path)  %></li>
+        < % end %>
+        <li class="nav-user">
+          < % if current_user %>
+            < %= link_to "Log Out, #{current_user.username.humanize}!" , destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure?' } %>
+          < % else %>
+            < %= link_to 'Login', login_path %>
+          < % end %>
+        </li>
+      </ul> -->
+
+    </nav>
+  </div>
+
+
+
 
 <%= yield %>
 
