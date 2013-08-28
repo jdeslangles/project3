@@ -1,18 +1,8 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Bio:</b>
-  <%= @user.bio %>
-</p>
-
-<p>
-  <b>Birthdate:</b>
-  <%= @user.birthdate %>
-</p>
-
-<p>
-  <b>Email:</b>
-  <%= @user.email %>
+  <b>Username:</b>
+  <%= @user.username %>
 </p>
 
 <p>
@@ -26,9 +16,28 @@
 </p>
 
 <p>
-  <b>Username:</b>
-  <%= @user.username %>
+  <b>Email:</b>
+  <%= @user.email %>
 </p>
 
-<%= link_to 'Edit', edit_user_registration_path %> |
+<p>
+  <b>Bio:</b>
+  <%= @user.bio %>
+</p>
+
+<p>
+  <b>Birthdate:</b>
+  <%= @user.birthdate %>
+</p>
+
+<p>
+  <b>Trips:</b>
+  <ul> <% @user.trips.each do |trip| %>
+    <li><%= link_to trip.name, trip_path(trip.id) %></li>
+            <%end%>
+  </ul>
+</p>
+
+
+<%= link_to 'Edit', edit_user_registration_path %>
 <%= link_to 'Back', users_path %>
