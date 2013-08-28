@@ -10,15 +10,16 @@ $ ->
   canvas = document.getElementById("googleMap")
   map = new google.maps.Map(canvas, mapOptions)
 
-
   for marker in window.markers
-    myLatlng = new google.maps.LatLng(marker.latitude, marker.longitude)
+    myLatLng = new google.maps.LatLng(marker.latitude, marker.longitude)
     new google.maps.Marker
-      position: myLatlng
+      position: myLatLng
       map: map
       title: marker.name
     console.log marker
 
+  # bounds = new google.maps.LatLngBounds
+  #   bounds.extend(myLatLng)
 
 
 #   $(function(){
