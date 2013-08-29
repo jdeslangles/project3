@@ -1,0 +1,9 @@
+<% content_for :map do %>
+  <div id="googleMap"></div>
+<% end %>
+
+  <div id="form_interface">
+    <%= render "partials/new_trip",  trip: @trip %>
+    <%= render "partials/new_marker",  marker: @marker %>
+  </div>
+</div>

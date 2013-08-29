@@ -1,4 +1,5 @@
 class HomeController < ApplicationController
+
   def home
     if params[:q]
       query = params[:q].to_s.downcase
@@ -7,4 +8,5 @@ class HomeController < ApplicationController
       @trips = @markers = @users =  []
     end
   end
+
 end

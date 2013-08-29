@@ -14,7 +14,7 @@ TravelBlog::Application.routes.draw do
 
   match 'search', to: 'search#index', via: [:get, :post], as: :search
 
-
+  get '/trip_interface', to: 'trips#trip_interface', as: :trip_interface
   get '/my_profile', to: 'users#my_profile', as: :my_profile
 
   root :to => 'home#home'

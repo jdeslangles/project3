@@ -8,6 +8,9 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+
+  <%= yield :map %>
+
   <nav class="navbar navbar-inverse" role="navigation">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex8-collapse">
@@ -20,6 +23,7 @@
     </div>
     <div class="collapse navbar-collapse navbar-ex8-collapse">
       <ul class="nav navbar-nav">
+        <li><%= link_to('New trip', trip_interface_path)  %></li>
         <li><%= link_to('Trips', trips_path)  %></li>
         <li><%= link_to('Markers', markers_path)  %></li>
         <li><%= link_to('Users', users_path)  %></li>
@@ -51,13 +55,13 @@
           <% end %>
         </li>
       </ul>
-
     </div>
   </nav>
 
 <div class="container">
-<%= yield %>
+  <%= yield %>
 </div>
+
   <footer>
     <%= yield :scripts %>
   </footer>
