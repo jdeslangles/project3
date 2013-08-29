@@ -5,14 +5,14 @@
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
       <h2 >Where do you want to go?</h2>
-        <%= form_tag root_path, onsubmit:"showHide()" , method: :post do |f| %>
+        <%= form_tag root_path, id:"submit_form_button", method: :post do |f| %>
         <%= text_field_tag :q, params[:q], class:"form-control", placeholder:"Take me to...", autofocus: :true %>
-        <%= submit_tag 'Search!' , name: nil, class:"btn btn-lg btn-primary btn-block" %>
+        <%= submit_tag 'Search!' , name: nil, class:"btn btn-lg btn-primary btn-block"%>
         <% end %>
   </div>
 </div>
 
-  <div id="search_results_all" >
+  <div id="search_results_all"  style="display:none">
     <div>
       <h3>Trips</h3>
       <% @trips.each do |trip|%>
