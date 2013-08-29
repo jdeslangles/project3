@@ -31,20 +31,13 @@
 </p>
 
 <p>
-  <b>Password digest:</b>
-  <%= @user.password_digest %>
-</p>
-
-<p>
   <b>Trips:</b>
   <ul> <% @user.trips.each do |trip| %>
     <li><%= link_to trip.name, trip_path(trip.id) %></li>
             <%end%>
-
   </ul>
-
 </p>
 
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Edit', edit_user_registration_path %>
 <%= link_to 'Back', users_path %>

@@ -1,15 +1,20 @@
 TravelBlog::Application.routes.draw do
+  devise_for :users
+
+  devise_scope :user do
+    get '/login', to: 'devise/sessions#new'
+  end
+
   resources :markers
-
-
   resources :users
-
-
   resources :trips
 
   match 'search', to: 'search#index', via: [:get, :post], as: :search
 
-  root to: 'trips#index'
+
+  get '/my_profile', to: 'users#my_profile', as: :my_profile
+
+  root :to => 'users#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -60,7 +65,7 @@ TravelBlog::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+   # root :to => 'users#index'
 
   # See how all your routes lay out with "rake routes"
 
