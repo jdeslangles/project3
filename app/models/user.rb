@@ -36,22 +36,6 @@ class User < ActiveRecord::Base
   private
   def avatar_size_validation
     errors[:avatar] << "should be less than 1MB" if avatar.size > (1.2).megabyte
-
-
   end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 end

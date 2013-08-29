@@ -7,37 +7,37 @@
   <%= f.email_field :email, :autofocus => true %></div>
 
   <div>
-    <%= f.label :firstname, 'First Name' %>
+    <%= f.label :firstname, 'First Name' %><br>
     <%= f.text_field :firstname %>
   </div>
 
   <div>
-    <%= f.label :last_name, 'Last Name' %>
+    <%= f.label :last_name, 'Last Name' %><br>
     <%= f.text_field :lastname %>
   </div>
 
   <div>
-    <%= f.label :username %>
+    <%= f.label :username %><br>
     <%= f.text_field :username %>
   </div>
 
   <div>
-    <%= f.label :avatar %>
+    <%= f.label :avatar %><br>
     <%= f.file_field :avatar, :onchange =>"validateFiles(this);", :data => { :max_file_size => 1.megabyte }%><br/><br>
   </div>
 
   <div>
-    <%= f.label :bio %>
-    <%= f.text_area :bio, size: '100x3' %>
+    <%= f.label :bio %><br>
+    <%= f.text_area :bio,:size => "32x5" %>
   </div>
 
   <div>
-    <%= f.label :birthdate %>
+    <%= f.label :birthdate %><br>
     <%= f.date_select :birthdate %>
   </div>
 
   <div>
-    <%= f.label :location %>
+    <%= f.label :location %><br>
     <%= f.text_field :location %>
   </div>
 
