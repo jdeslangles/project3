@@ -10,4 +10,8 @@ class Marker < ActiveRecord::Base
 
   after_validation :geocode, :if => :address_changed?
 
+
+  def self.search_results query
+    self.where('LOWER(name) like :search OR LOWER(description) like :search OR LOWER(address) like :search', search: "%#{query}%")
+  end
 end

@@ -1,0 +1,25 @@
+<% if flash %>
+  <p><%= flash[:error] %></p>
+<% end %>
+
+<div class="home_search_box">
+    <h2 class="form-signin-heading">Where do you want to go?</h2>
+      <%= form_tag root_path, class:"form-control",method: :post  do |f| %>
+      <%= text_field_tag :q, params[:q], class:"form-control", placeholder:"Take me to...", autofocus: :true %>
+      <%= submit_tag 'Search!' , name: nil, class:"btn btn-lg btn-primary btn-block" %>
+      <% end %>
+</div>
+
+
+<h2>trips</h2>
+<% @trips.each do |trip|%>
+  <%= trip.name%>
+<% end %>
+<h2>markers</h2>
+<% @markers.each do |marker|%>
+  <%= marker.name%>
+<% end %>
+<h2>users</h2>
+<% @users.each do |user|%>
+  <%= user.username%>
+<% end %>
