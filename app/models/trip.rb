@@ -6,4 +6,5 @@ class Trip < ActiveRecord::Base
   def self.search_results query
     self.where('LOWER(name) like :search OR LOWER(description) like :search', search: "%#{query}%")
   end
+
 end
