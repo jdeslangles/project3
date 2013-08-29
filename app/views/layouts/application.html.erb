@@ -47,22 +47,9 @@
     </nav>
   </div>
 
-<!-- Search div -->
-<div>
-  <%= form_tag search_path, html: {method: :post} do |f| %>
-  <p><%= text_field_tag :q, params[:q] %></p>
-  <p><%= submit_tag 'Search!' , name: nil %></p>
-  <% end %>
-
-<% if flash %>
-  <p><%= flash[:error] %></p>
-<% end %>
-</div>
-
-<div class="container">
-
-<%= yield %>
-</div>
+  <div class="container">
+    <%= yield %>
+  </div>
 
   <footer>
     <%= yield :scripts %>

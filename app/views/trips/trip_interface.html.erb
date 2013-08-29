@@ -1,8 +1,14 @@
-<div class="map_wrapper">
-  <div class="map_border">
-    <div id="googleMap"> </div>
+<div class="row-fluid">
+  <div class="span6 map_wrapper">
+    <div class="map_border">
+      <div id="googleMap"> </div>
+    </div>
+  </div>
+
+  <div class="span3">
+    <%= render "partials/new_trip",  trip: @trip %>
+  </div>
+  <div class="span3">
+    <%= render "partials/new_marker",  marker: @marker %>
   </div>
 </div>
-
-<%= render "partials/new_trip",  trip: @trip %>
-<%= render "partials/new_marker",  marker: @marker %>
