@@ -1,0 +1,11 @@
+ <% if @trips.empty? %>
+    Sorry, nothing matched your search term.
+  <% end %>
+
+<div>
+  <% @trips.each do |trip| %>
+    <div>
+      <%= link_to trip.name, trip_path(trip.id)%>
+    </div>
+  <% end %>
+</div>
