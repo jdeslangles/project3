@@ -3,7 +3,7 @@
 <% end %>
 
 <div class="row">
-  <div class="col-md-6">
+  <div class="col-md-6 col-md-offset-3">
       <h2 >Where do you want to go?</h2>
         <%= form_tag root_path, onsubmit:"showHide()" , method: :post do |f| %>
         <%= text_field_tag :q, params[:q], class:"form-control", placeholder:"Take me to...", autofocus: :true %>
@@ -12,33 +12,32 @@
   </div>
 </div>
 
-<div id="search_results_all" >
-  <div>
-    <h3>Trips</h3>
-    <% @trips.each do |trip|%>
-    <ul>
-      <li><%= link_to trip.name, trip_path(trip.id)%></li>
-    </ul>
-    <% end %>
-  </div>
+  <div id="search_results_all" >
+    <div>
+      <h3>Trips</h3>
+      <% @trips.each do |trip|%>
+      <ul>
+        <li><%= link_to trip.name, trip_path(trip.id)%></li>
+      </ul>
+      <% end %>
+    </div>
+    <div>
+      <h3>Stops</h3>
+      <% @markers.each do |marker|%>
+      <ul>
+        <li><%= link_to marker.name, marker_path(marker.id)%></li>
+      </ul>
+      <% end %>
+    </div>
+    <div>
+      <h3>Users</h3>
+      <% @users.each do |user|%>
+      <ul>
+        <li><%= link_to user.username, user_path(user.id)%></li>
+      </ul>
+      <% end %>
+    </div>
 
-  <div>
-    <h3>Stops</h3>
-    <% @markers.each do |marker|%>
-    <ul>
-      <li><%= link_to marker.name, marker_path(marker.id)%></li>
-    </ul>
-    <% end %>
-  </div>
-
-  <div>
-    <h3>Users</h3>
-    <% @users.each do |user|%>
-    <ul>
-      <li><%= link_to user.username, user_path(user.id)%></li>
-    </ul>
-    <% end %>
-  </div>
 </div>
 
 
