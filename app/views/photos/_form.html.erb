@@ -24,8 +24,8 @@
     <%= f.text_field :marker %>
   </div>
   <div class="field">
+    <%= f.label :photo_picture%><br />
     <%= f.file_field :photo_picture, :onchange =>"validateFiles(this);", :data => { :max_file_size => 1.megabyte } %>
-     <%= f.label :photo_picture%><br />
   </div>
   <div class="actions">
     <%= f.submit %>

@@ -13,3 +13,9 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+/public/system/*
+/public/uploads/photo/*
+/public/uploads/marker/*
+/public/uploads/trip/*
+/public/uploads/user/avatar/*
+/public/uploads/tmp/*

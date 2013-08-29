@@ -6,8 +6,13 @@
 
 <div id="trip_details">
   <p>
-    <b>Name:</b>
+<!--     <b>Name:</b> -->
     <%= @trip.name %>
+  </p>
+
+    <p>
+<!--     <b>Cover photo:</b> -->
+    <%=image_tag @trip.cover_photo.thumb %>
   </p>
 
   <p>
@@ -16,17 +21,12 @@
   </p>
 
   <p>
-    <b>Cover photo:</b>
-    <%= @trip.cover_photo %>
-  </p>
-
-  <p>
-    <b>Trip Creator:</b>
+    <b>Adventurer:</b>
     <%=link_to @trip.user.firstname, user_path(@trip.user_id)%>
   </p>
 
   <p>
-    <b>Trip Stops:</b>
+    <b>Locations visited:</b>
     <ul> <% @trip.markers.each do |marker| %>
       <li><%= link_to marker.name, marker_path(marker.id) %></li>
               <%end%>

@@ -20,8 +20,8 @@
     <%= f.text_area :description, :size => "32x5" %>
   </div>
   <div class="field">
-    <%= f.label :cover_photo %><br />
-    <%= f.text_field :cover_photo %>
+    <%= f.label :cover_photo%><br />
+    <%= f.file_field :cover_photo, :onchange =>"validateFiles(this);", :data => { :max_file_size => 1.megabyte } %>
   </div>
   <div class="actions">
     <%= f.submit %>
