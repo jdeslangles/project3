@@ -1,6 +1,6 @@
 class Trip < ActiveRecord::Base
   belongs_to :user
-  has_many :markers
+  has_many :markers, dependent: :destroy
 
   attr_accessible :cover_photo, :description, :name, :user
 
