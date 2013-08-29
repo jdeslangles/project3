@@ -1,0 +1,23 @@
+ <% if (@trips + @markers + @users).empty? %>
+    Sorry, nothing matched your search term.
+  <% end %>
+
+<div>
+  <% @trips.each do |trip| %>
+    <div>
+      <%= link_to trip.name, trip_path(trip.id)%>
+    </div>
+  <% end if @trips%>
+
+    <% @markers.each do |marker| %>
+    <div>
+      <%= link_to marker.name, marker_path(marker.id)%>
+    </div>
+  <% end if @markers%>
+
+    <% @users.each do |user| %>
+    <div>
+      <%= link_to user.username, user_path(user.id)%>
+    </div>
+  <% end if @users%>
+</div>

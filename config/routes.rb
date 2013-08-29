@@ -12,6 +12,9 @@ TravelBlog::Application.routes.draw do
   resources :users
   resources :trips
 
+  match 'search', to: 'search#index', via: [:get, :post], as: :search
+
+
   get '/my_profile', to: 'users#my_profile', as: :my_profile
 
   root :to => 'users#index'

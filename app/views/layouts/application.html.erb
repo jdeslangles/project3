@@ -16,6 +16,7 @@
         <li><%= link_to('Trips', trips_path)  %></li>
 
         <li><%= link_to('Markers', markers_path)  %></li>
+
         <% if current_user %>
           <li><%= link_to('My Profile', my_profile_path) %></li>
         <% end %>
@@ -44,7 +45,17 @@
     </nav>
   </div>
 
+<!-- Search div -->
+<div>
+  <%= form_tag search_path, html: {method: :post} do |f| %>
+  <p><%= text_field_tag :q, params[:q] %></p>
+  <p><%= submit_tag 'Search!' , name: nil %></p>
+  <% end %>
 
+<% if flash %>
+  <p><%= flash[:error] %></p>
+<% end %>
+</div>
 
 
 <%= yield %>
