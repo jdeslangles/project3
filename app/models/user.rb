@@ -14,6 +14,9 @@ class User < ActiveRecord::Base
 
   validate :avatar_size_validation
 
+  accepts_nested_attributes_for :trips
+
+
   private
   def downcase_username
     self.username.downcase! if self.username

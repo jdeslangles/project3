@@ -14,8 +14,8 @@
     </div>
     <nav class="collapse navbar-collapse">
       <ul class ="nav navbar-nav">
+        <li><%= link_to('New trip', trip_interface_path)  %></li>
         <li><%= link_to('Trips', trips_path)  %></li>
-
         <li><%= link_to('Markers', markers_path)  %></li>
 
         <% if current_user %>

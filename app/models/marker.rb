@@ -10,4 +10,6 @@ class Marker < ActiveRecord::Base
 
   after_validation :geocode, :if => :address_changed?
 
+  accepts_nested_attributes_for :photos
+
 end
