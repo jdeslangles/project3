@@ -8,6 +8,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <%= yield :map %>
   <div class="navbar navbar-inverse" role="navigation">
     <div class="navbar-header">
       <%= link_to("FootSteps", users_path , class: "navbar-brand") %>

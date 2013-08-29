@@ -43,6 +43,7 @@ class TripsController < ApplicationController
     @marker = @trip.markers.new
     render :trip_interface
   end
+
   # GET /trips/1/edit
   def edit
     @trip = Trip.find(params[:id])

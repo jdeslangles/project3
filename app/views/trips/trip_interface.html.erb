@@ -1,14 +1,12 @@
-<div class="row-fluid">
-  <div class="span6 map_wrapper">
-    <div class="map_border">
-      <div id="googleMap"> </div>
-    </div>
-  </div>
+<% content_for :map do %>
+  <div id="googleMap"></div>
+<% end %>
 
-  <div class="span3">
+
+  <div id="form_interface" class="col-md-3 col-md-offset-9">
     <%= render "partials/new_trip",  trip: @trip %>
-  </div>
-  <div class="span3">
+    <br>
+    <br>
     <%= render "partials/new_marker",  marker: @marker %>
   </div>
 </div>
