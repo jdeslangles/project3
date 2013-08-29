@@ -17,7 +17,7 @@ TravelBlog::Application.routes.draw do
   get '/trip_interface', to: 'trips#trip_interface', as: :trip_interface
   get '/my_profile', to: 'users#my_profile', as: :my_profile
 
-  root :to => 'users#index'
+  root :to => 'home#home'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

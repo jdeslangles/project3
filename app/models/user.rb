@@ -17,6 +17,11 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :trips
 
 
+
+  def self.search_results query
+    self.where('LOWER(firstname) like :search OR LOWER(lastname) like :search OR LOWER(username) like :search OR LOWER(bio) like :search ', search: "%#{query}%")
+  end
+
   private
   def downcase_username
     self.username.downcase! if self.username
