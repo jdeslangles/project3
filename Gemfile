@@ -9,6 +9,8 @@ gem 'pg'
 gem 'geocoder'
 gem 'gmaps4rails'
 gem 'devise'
+gem 'carrierwave'
+gem 'mini_magick'
 
 group :development do
   # gem 'rspec-rails'

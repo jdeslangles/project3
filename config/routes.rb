@@ -1,4 +1,7 @@
 TravelBlog::Application.routes.draw do
+  resources :photos
+
+
   devise_for :users
 
   devise_scope :user do

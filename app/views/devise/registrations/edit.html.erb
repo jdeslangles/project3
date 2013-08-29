@@ -25,6 +25,11 @@
   </div>
 
   <div>
+    <%= f.label :avatar %>
+    <%= f.file_field :avatar, :onchange =>"validateFiles(this);", :data => { :max_file_size => 1.megabyte }%><br/><br>
+  </div>
+
+  <div>
     <%= f.label :bio %>
     <%= f.text_area :bio, size: '100x3' %>
   </div>
@@ -32,6 +37,11 @@
   <div>
     <%= f.label :birthdate %>
     <%= f.date_select :birthdate %>
+  </div>
+
+  <div>
+    <%= f.label :location %>
+    <%= f.text_field :location %>
   </div>
 
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130828151127) do
+ActiveRecord::Schema.define(:version => 20130828181415) do
 
   create_table "markers", :force => true do |t|
     t.string   "name"
@@ -25,6 +25,17 @@ ActiveRecord::Schema.define(:version => 20130828151127) do
   end
 
   add_index "markers", ["trip_id"], :name => "index_markers_on_trip_id"
+
+  create_table "photos", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "marker_id"
+    t.string   "photo_picture"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "photos", ["marker_id"], :name => "index_photos_on_marker_id"
 
   create_table "trips", :force => true do |t|
     t.string   "name"
