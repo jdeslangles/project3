@@ -24,15 +24,17 @@
 
 
       <ul class="nav pull-right">
-<!--         <li>
-          < %= form_tag search_path, class:"navbar-search pull-left", html: {method: :post} do |f| %>
-            < %= text_field_tag :q, params[:q], class:"search-query" %>
-            < %= submit_tag 'Search!' , name: nil,  class:"btn btn-inverse btn-small" %>
-          < % end %>
-        </li> -->
+        <li>
+          <%= form_tag search_path, class:"navbar-search pull-left", html: {method: :post} do |f| %>
+          <%= text_field_tag :q, params[:q], class:"search-query" %>
+          <%= submit_tag 'Search!' , name: nil,  class:"btn btn-inverse btn-small"  %>
+          <% end %>
+        </li>
+
         <% unless current_user %>
         <li class="nav-signup"><%= link_to('Sign up', new_user_registration_path)  %></li>
         <% end %>
+
         <li class="nav-user">
           <% if current_user %>
             <%= link_to "Log Out, #{current_user.username.humanize}!" , destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure?' } %>
