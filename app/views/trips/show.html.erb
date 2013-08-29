@@ -1,12 +1,10 @@
 <p id="notice"><%= notice %></p>
 
-<div class="map_wrapper">
-  <div class="map_border">
-    <div id="googleMap"> </div>
-  </div>
-</div>
+<% content_for :map do %>
+  <div id="googleMap"></div>
+<% end %>
 
-<div>
+<div id="trip_details">
   <p>
     <b>Name:</b>
     <%= @trip.name %>

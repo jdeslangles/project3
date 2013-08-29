@@ -3,24 +3,23 @@
 html, body {
   height: 100%;
   min-height: 100%;
+  background-color: black;
+  color: white;
 }
 
-forms_interface {
-  background-color: black;
-  color: grey;
-}
 
 /* Navbar styling */
 
 .navbar {
   margin-bottom: 0;
   border-radius: 0;
+  background-color: black;
 }
 
 /* Map styling*/
 
 #googleMap {
-  width: 100%;
+  width: 75%;
   height: 100%;
   position: absolute;
   top: 50px;
@@ -35,7 +34,27 @@ forms_interface {
   width: 100%;
 }
 
-.container {
-  position: relative;
+
+/* Interface styling */
+
+#form_interface {
+  padding-left: 20px;
+  padding-right: 0;
+  background-color: black;
+  color: grey;
   z-index: 1;
+  position: absolute;
+  right: 0;
+  width: 25%;
+}
+
+#trip_details{
+  padding-left: 20px;
+  padding-right: 0;
+  background-color: black;
+  color: grey;
+  z-index: 1;
+  position: absolute;
+  right: 0;
+  width: 25%;
 }
