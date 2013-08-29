@@ -9,6 +9,8 @@ TravelBlog::Application.routes.draw do
 
   match 'search', to: 'search#index', via: [:get, :post], as: :search
 
+  root to: 'trips#index'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
