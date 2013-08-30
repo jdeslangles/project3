@@ -1,3 +1,6 @@
+
+  <!-- Carousel -->
+
 <div id="carousel-example-generic" class="carousel slide">
   <!-- Indicators -->
   <ol class="carousel-indicators">
@@ -6,7 +9,7 @@
     <li data-target="#carousel-example-generic" data-slide-to="2"></li>
   </ol>
 
-  <!-- Wrapper for slides -->
+  <!-- Wrapper for Carousel slides -->
   <div class="carousel-inner">
     <div class="item ">
       <%= image_tag "footsteps.jpg"%>
@@ -19,7 +22,7 @@
     </div>
   </div>
 
-  <!-- Controls -->
+  <!-- Carousel Controls -->
   <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
     <span class="icon-prev"></span>
   </a>
@@ -28,6 +31,7 @@
   </a>
 </div>
 
+  <!-- Search -->
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
@@ -40,8 +44,40 @@
 </div>
 
 
+  <!-- Search Results  -->
+<div id="search_results_all" >
+<!--   <ul class="nav nav-tabs" id="myTab">
+    <li class="active"><a href="#trips" data-toggle="tab">Trips</a></li>
+    <li><a href="#stops" data-toggle="tab">Stops</a></li>
+    <li><a href="#users" data-toggle="tab">Users</a></li>
+  </ul>
 
-<div id="search_results_all"  style="display:none">
+  <div class="tab-content">
+    <div class="tab-pane active" id='search_results_trips'>...</div>
+    <div class="tab-pane" id='search_results_markers'>...</div>
+    <div class="tab-pane" id='search_results_users'>user.username</div>
+  </div> -->
+
+<ul class="nav nav-tabs" id="myTab">
+  <li class="active"><a href="#home">Home</a></li>
+  <li><a href="#profile">Profile</a></li>
+  <li><a href="#messages">Messages</a></li>
+  <li><a href="#settings">Settings</a></li>
+</ul>
+
+<div class="tab-content">
+  <div class="tab-pane active" id="home">...</div>
+  <div class="tab-pane" id="profile">...</div>
+  <div class="tab-pane" id="messages">...</div>
+  <div class="tab-pane" id="settings">...</div>
+</div>
+
+<script>
+  $(function () {
+    $('#myTab a:last').tab('show')
+  })
+</script>
+
 </div>
 
 

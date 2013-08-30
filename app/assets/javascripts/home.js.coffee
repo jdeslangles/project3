@@ -33,6 +33,7 @@ $ ->
         flash_error errors
 
 
+
   # $('.carousel').carousel({
   #   interval: 4000
   # });
