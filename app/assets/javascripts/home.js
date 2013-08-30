@@ -10,10 +10,14 @@
   //   e.preventDefault();
   //   $('#search_results_all').show();
   // });
-
-  $('#submit_form_button').on("submit", function showHide(event) {
+$(function(){
+  $('#submit_form_button').on("submit", function (event) {
     event.preventDefault();
-    $('#search_results_all').show();
-  };
+    $('#search_results_all').fadeIn(200);
+  });
 
 
+  $('.carousel').carousel({
+    interval: 2000
+  });
+});
