@@ -2,11 +2,13 @@ class TripsController < ApplicationController
   # GET /trips
   # GET /trips.json
   def index
-    @trips = Trip.all
+    @trips = Trip.where(user_id: current_user.id)
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @trips }
+      format.json {
+        render json: @trips.to_json(include: :markers)
+      }
     end
   end
 

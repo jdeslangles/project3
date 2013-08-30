@@ -1,3 +1,5 @@
+<% content_for(:user_id) do %>data-user-id="<%= @user.id %>"<% end %>
+
 <p id="notice"><%= notice %></p>
 
 
@@ -33,17 +35,13 @@
   <b>Birthdate:</b>
   <%= @user.birthdate %>
 </p>
-
 <p>
   <b>Trips:</b>
-  <ul id="user_trips"> <% @user.trips.each do |trip| %>
-    <li><%= link_to trip.name, trip_path(trip.id) %></li>
-      <% content_for :map do %>
-        <div id="googleMap_<%= trip.id %>" class="map_user_profile"></div>
-        <script>
-          window.trip_<%= trip.id %>_data = <%= raw trip.markers.to_json %>
-        </script>
-      <% end %>
+  <ul id="user_trips">
+    <% @user.trips.each do |trip| %>
+      <li id="trip_<%= trip.id %>">
+        <%= link_to trip.name, trip_path(trip.id) %>
+      </li>
     <% end %>
   </ul>
 </p>
