@@ -17,7 +17,7 @@ $ ->
   flash_error = (errors) ->
     $('#search_results_all').empty()
     $('#search_results_all').append("<p id='search_error'>"+errors+"</p>")
-    $("#search_results_all").fadeIn(200)
+    $("#search_results_all").fadeIn(200).delay(3000).fadeOut(200)
 
   $('#submit_form_button').on "submit", (event) ->
     event.preventDefault()
