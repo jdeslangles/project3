@@ -2,7 +2,7 @@
 $ ->
   if $("#googleMap").length > 0
     mapOptions =
-      zoom: 10
+      zoom: 1
       center: new google.maps.LatLng(0, 0)
       mapTypeId: google.maps.MapTypeId.ROADMAP
       scrollwheel: false
