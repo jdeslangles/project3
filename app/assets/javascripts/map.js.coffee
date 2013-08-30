@@ -1,5 +1,8 @@
 $ ->
 
+# MULTIPLE MAPS ON USER PAGE
+
+# sets multiple maps on user page
   if $('#user_trips').length > 0
     mapOptions =
       zoom: 1
@@ -15,10 +18,26 @@ $ ->
         $('#trip_' + trip.id).append(mapElement)
         nativeMapElement = document.getElementById("map_" +trip.id)
         map = new google.maps.Map(nativeMapElement, mapOptions)
+        bounds = new google.maps.LatLngBounds()
+        latlngs = []
         for marker in trip.markers
+          marker_position = new google.maps.LatLng marker.latitude, marker.longitude
           marker = new google.maps.Marker
-            position: new google.maps.LatLng marker.latitude, marker.longitude
+            position: marker_position
             map: map
+          bounds.extend(marker_position)
+          latlngs.push marker_position
+
+        map.fitBounds(bounds)
+        trip_path = new google.maps.Polyline
+          path: latlngs
+          strokeColor: "#7c2849"
+          strokeWeight: 2
+        trip_path.setMap map
+
+
+
+# UNIQUE MAP ON TRIP INTERFACE AND INDIVIDUAL MAP
 
 # sets map options
   if $("#googleMap").length > 0
