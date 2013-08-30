@@ -14,6 +14,10 @@ $ ->
       console.log(marker)
       $('#search_results_all').append("<p id='search_results_markers'>" + marker.address+ "</p>");
 
+  flash_error = (errors) ->
+    $('#search_results_all').empty()
+    $('#search_results_all').append("<p id='search_error'>"+errors+"</p>")
+    $("#search_results_all").fadeIn(200)
 
   $('#submit_form_button').on "submit", (event) ->
     event.preventDefault()
@@ -24,7 +28,9 @@ $ ->
       data:
         q: query
       success: render_results
-
+      error: (xhr) ->
+        errors = $.parseJSON(xhr.responseText).errors
+        flash_error errors
 
 
   # $('.carousel').carousel({
