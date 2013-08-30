@@ -1,6 +1,7 @@
 $ ->
 
   render_results = (data)->
+    $('#search_results_all').empty();
     $('#search_results_all').fadeIn(200);
     console.log(data)
     for user in data.users
