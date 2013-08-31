@@ -1,3 +1,5 @@
+<% content_for(:user_id) do %>data-user-id="<%= @user.id %>"<% end %>
+
 <p id="notice"><%= notice %></p>
 
 
@@ -33,12 +35,14 @@
   <b>Birthdate:</b>
   <%= @user.birthdate %>
 </p>
-
 <p>
   <b>Trips:</b>
-  <ul> <% @user.trips.each do |trip| %>
-    <li><%= link_to trip.name, trip_path(trip.id) %></li>
-            <%end%>
+  <ul id="user_trips">
+    <% @user.trips.each do |trip| %>
+      <li id="trip_<%= trip.id %>">
+        <%= link_to trip.name, trip_path(trip.id) %>
+      </li>
+    <% end %>
   </ul>
 </p>
 

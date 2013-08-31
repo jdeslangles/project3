@@ -91,4 +91,15 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def trips
+    @trips = Trip.where(user_id: params[:id])
+
+    respond_to do |format|
+      format.json {
+        render json: @trips.to_json(include: :markers)
+      }
+    end
+  end
+
 end

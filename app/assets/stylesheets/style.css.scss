@@ -44,23 +44,35 @@ div.item img{
 /* Interface styling */
 
 #form_interface {
-  padding-left: 20px;
+  padding-left: 10px;
   padding-right: 0;
   background-color: black;
   color: grey;
   z-index: 1;
   position: absolute;
   right: 0;
+  min-width: 230px;
   width: 25%;
+  height: 100%;
 }
 
 #trip_details{
-  padding-left: 20px;
+  padding-left: 10px;
   padding-right: 0;
   background-color: black;
   color: grey;
   z-index: 1;
   position: absolute;
   right: 0;
+  min-width: 230px;
   width: 25%;
+  height: 100%;
+}
+
+.map_user_profile {
+  width:250px;
+  height: 250px;
+  // position: absolute;
+  // float:left;
+  // z-index: 0;
 }
