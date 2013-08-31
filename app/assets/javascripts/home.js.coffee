@@ -20,18 +20,23 @@ $ ->
     $("#search_results_all").fadeIn(200).delay(3000).fadeOut(200)
 
 
-  $('#submit_form_button').on "submit", (event) ->
-    event.preventDefault()
-    query = $("#q").val()
-    $.ajax
-      type: "POST"
-      url: "/"
-      data:
-        q: query
-      success: render_results
-      error: (xhr) ->
-        errors = $.parseJSON(xhr.responseText).errors
-        flash_error errors
+  $('#submit_form_button').keyup (event)->
+    self = this
+    clearTimeout self.timer if self.timer
+    self.timer = setTimeout(->
+      self.time = null
+      query = $("#q").val()
+      $.ajax
+        type: "GET"
+        url: "/"
+        data:
+          q: query
+        success: render_results
+        error: (xhr) ->
+          errors = $.parseJSON(xhr.responseText).errors
+          flash_error errors
+    , 1000)
+
 
 
 
