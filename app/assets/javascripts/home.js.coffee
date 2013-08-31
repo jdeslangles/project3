@@ -2,8 +2,8 @@ $ ->
 
 # SEARCH FUNCTIONALITY
   render_results = (data)->
-    $('#search_results_all').empty();
-    $('#search_results_all').fadeIn(200);
+    # $('#search_results_all').empty();
+    # $('#search_results_all').fadeIn(200);
     for user in data.users
       console.log(user)
       $('#users').append("<p id='search_results_users'>" + user.username+ "</p>");
@@ -20,7 +20,8 @@ $ ->
     $("#search_results_all").fadeIn(200).delay(3000).fadeOut(200)
 
 showDiv = ->
-  document.getElementById("search_results_all'").style.display = "block"
+  $("#search_results_all'").style.display = "block"
+  $('#search_results_all').empty();
 
   $('#submit_form_button').on "submit", (event) ->
     event.preventDefault()
