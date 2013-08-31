@@ -33,6 +33,15 @@ $ ->
         flash_error errors
 
 
+  $('#myTab a').click (e) ->
+    e.preventDefault()
+    $(this).tab "show"
+
+  $("a[data-toggle=\"tab\"]").on "shown.bs.tab", (e) ->
+    e.target
+    e.relatedTarget
+
+
 
   # $('.carousel').carousel({
   #   interval: 4000

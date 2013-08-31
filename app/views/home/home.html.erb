@@ -46,6 +46,7 @@
 
   <!-- Search Results  -->
 <div id="search_results_all" >
+
 <!--   <ul class="nav nav-tabs" id="myTab">
     <li class="active"><a href="#trips" data-toggle="tab">Trips</a></li>
     <li><a href="#stops" data-toggle="tab">Stops</a></li>
@@ -58,26 +59,24 @@
     <div class="tab-pane" id='search_results_users'>user.username</div>
   </div> -->
 
-<ul class="nav nav-tabs" id="myTab">
-  <li class="active"><a href="#home">Home</a></li>
-  <li><a href="#profile">Profile</a></li>
-  <li><a href="#messages">Messages</a></li>
-  <li><a href="#settings">Settings</a></li>
-</ul>
+  <div>
+    <ul class="nav nav-tabs" id="myTab">
+      <li class="active"><a href="#trips">Trips</a></li>
+      <li><a href="#stops">Stops</a></li>
+      <li><a href="#users">Users</a></li>
+    </ul>
+  </div>
 
-<div class="tab-content">
-  <div class="tab-pane active" id="home">...</div>
-  <div class="tab-pane" id="profile">...</div>
-  <div class="tab-pane" id="messages">...</div>
-  <div class="tab-pane" id="settings">...</div>
-</div>
-
-<script>
-  $(function () {
-    $('#myTab a:last').tab('show')
-  })
-</script>
+  <div class="tab-content">
+    <div class="tab-pane active" id="trips">trips listed here</div>
+    <div class="tab-pane" id="stops">stops listed here</div>
+    <div class="tab-pane" id="users">users listed here</div>
+  </div>
 
 </div>
+
+
+
+
 
 
