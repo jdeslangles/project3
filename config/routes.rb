@@ -9,7 +9,9 @@ TravelBlog::Application.routes.draw do
   end
 
   resources :markers
-  resources :users
+  resources :users do
+    get '/trips', action: :trips, on: :member
+  end
   resources :trips
 
   match 'search', to: 'search#index', via: [:get, :post], as: :search
