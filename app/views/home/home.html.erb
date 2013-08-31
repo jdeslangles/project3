@@ -38,27 +38,14 @@
       <h2 >Where do you want to go?</h2>
         <%= form_tag root_path, id:"submit_form_button", method: :post do |f| %>
         <%= text_field_tag :q, params[:q], class:"form-control", placeholder:"Take me to...", autofocus: :true %>
-        <%= submit_tag 'Search!' , name: nil, class:"btn btn-lg btn-primary btn-block"%>
+        <%= submit_tag 'Search!' , name: nil, class:"btn btn-lg btn-primary btn-block", onclick:"showDiv()"%>
         <% end %>
   </div>
 </div>
 
 
   <!-- Search Results  -->
-<div id="search_results_all" >
-
-<!--   <ul class="nav nav-tabs" id="myTab">
-    <li class="active"><a href="#trips" data-toggle="tab">Trips</a></li>
-    <li><a href="#stops" data-toggle="tab">Stops</a></li>
-    <li><a href="#users" data-toggle="tab">Users</a></li>
-  </ul>
-
-  <div class="tab-content">
-    <div class="tab-pane active" id='search_results_trips'>...</div>
-    <div class="tab-pane" id='search_results_markers'>...</div>
-    <div class="tab-pane" id='search_results_users'>user.username</div>
-  </div> -->
-
+<div id="search_results_all"  style="display:none">
   <div>
     <ul class="nav nav-tabs" id="myTab">
       <li class="active"><a href="#trips">Trips</a></li>
@@ -66,13 +53,11 @@
       <li><a href="#users">Users</a></li>
     </ul>
   </div>
-
   <div class="tab-content">
     <div class="tab-pane active" id="trips"></div>
     <div class="tab-pane" id="stops"></div>
     <div class="tab-pane" id="users"></div>
   </div>
-
 </div>
 
 
