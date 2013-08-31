@@ -2,7 +2,7 @@ TravelBlog::Application.routes.draw do
   resources :photos
 
 
-  devise_for :users
+  devise_for :users, defaults: { format: 'json' }
 
   devise_scope :user do
     get '/login', to: 'devise/sessions#new'
