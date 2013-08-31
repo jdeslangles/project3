@@ -2,7 +2,9 @@ $ ->
 
 # SEARCH FUNCTIONALITY
   render_results = (data)->
-    # $('#search_results_all').empty();
+    $('#users').empty();
+    $('#trips').empty();
+    $('#stops').empty();
     # $('#search_results_all').fadeIn(200);
     for user in data.users
       console.log(user)
@@ -15,13 +17,12 @@ $ ->
       $('#stops').append("<p id='search_results_markers'>" + marker.address+ "</p>");
 
   flash_error = (errors) ->
-    $('#search_results_all').empty()
     $('#search_results_all').append("<p id='search_error'>"+errors+"</p>")
     $("#search_results_all").fadeIn(200).delay(3000).fadeOut(200)
 
-showDiv = ->
-  $("#search_results_all'").style.display = "block"
-  $('#search_results_all').empty();
+# showDiv = ->
+#   $("#search_results_all'").style.display = "block"
+#   $('#search_results_all').empty();
 
   $('#submit_form_button').on "submit", (event) ->
     event.preventDefault()

@@ -38,14 +38,14 @@
       <h2 >Where do you want to go?</h2>
         <%= form_tag root_path, id:"submit_form_button", method: :post do |f| %>
         <%= text_field_tag :q, params[:q], class:"form-control", placeholder:"Take me to...", autofocus: :true %>
-        <%= submit_tag 'Search!' , name: nil, class:"btn btn-lg btn-primary btn-block", onclick:"showDiv()"%>
+        <%= submit_tag 'Search!' , name: nil, class:"btn btn-lg btn-primary btn-block"%>
         <% end %>
   </div>
 </div>
 
 
   <!-- Search Results  -->
-<div id="search_results_all"  style="display:none">
+<div id="search_results_all">
   <div>
     <ul class="nav nav-tabs" id="myTab">
       <li class="active"><a href="#trips">Trips</a></li>
