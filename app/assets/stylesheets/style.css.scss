@@ -1,3 +1,13 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
+
+/* VARIABLES */
+$maroon: #7a2949;
+$orange: #b13c11;
+$blue: #335d69;
+$green: #67a193;
+$grey: #82756f;
+
+
 /* Body styling */
 
 html, body {
@@ -5,8 +15,9 @@ html, body {
   min-height: 100%;
   background-color: black;
   color: white;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
 }
-
 
 /* NAVBAR styling */
 
@@ -16,11 +27,38 @@ html, body {
   background-color: black;
 }
 
+.navbar-inverse .navbar-nav > li > a:hover,
+.navbar-inverse .navbar-nav > li > a:focus{
+  color: $green;
+}
+
 /* HOME PAGE SEARCH styling */
+
 div.item img{
   margin: 0 auto;
 }
 
+#search_form{
+  margin-top: 1em;
+  margin-bottom: 3em;
+}
+
+#submit_form_button {
+  width: 23em;
+  margin: 0 auto;
+}
+
+h2#search_title{
+  text-align: center;
+}
+
+#search_results_all a{
+  color: $green;
+}
+
+#result_line{
+  display: inline-block;
+}
 
 /* MAP styling*/
 

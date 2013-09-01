@@ -6,13 +6,13 @@ $ ->
     $('#search_results_all').fadeIn(200);
     for user in data.users
       console.log(user)
-      $('#search_results_all').append("<p id='search_results_users'><a href='/users/"+user.id+"'>"  + user.username+ "</a></p>");
+      $('#search_results_all').append("<div id='result_line'><img src='/assets/icon_example.jpg' /><a href='/users/"+user.id+"'>"  + user.username+ "</a></div>");
     for trip in data.trips
       console.log(trip)
-      $('#search_results_all').append("<p id='search_results_trips'><a href='/trips/"+trip.id+"'>"  + trip.name+ "</a></p>");
+      $('#search_results_all').append("<div id='result_line'><a href='/trips/"+trip.id+"'>"  + trip.name+ "</a></div>");
     for marker in data.markers
       console.log(marker)
-      $('#search_results_all').append("<p id='search_results_markers'><a href='/markers/"+marker.id+"'>"  + marker.name+ "</a></p>");
+      $('#search_results_all').append("<div id='result_line'><a href='/markers/"+marker.id+"'>"  + marker.name+ "</a></div>");
 
   flash_error = (errors) ->
     $('#search_results_all').empty();
