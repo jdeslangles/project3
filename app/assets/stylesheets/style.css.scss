@@ -1,10 +1,36 @@
-/* Body styling */
+/* BODY styling */
 
 html, body {
   height: 100%;
   min-height: 100%;
   background-color: black;
   color: white;
+}
+
+body.homepage {
+}
+
+body.sign_up {
+  background: url('sign_up.jpg')
+   no-repeat center center fixed;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+}
+
+body.sign_in {
+  background: url('sign_in.jpg')
+   no-repeat center center fixed;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+}
+
+.input_field {
+  border-radius: 5px;
+  border: 0;
 }
 
 
@@ -14,6 +40,7 @@ html, body {
   margin-bottom: 0;
   border-radius: 0;
   background-color: black;
+  box-shadow: 0px -1px 10px 3px black;
 }
 
 /* HOME PAGE SEARCH styling */
@@ -41,7 +68,7 @@ div.item img{
 }
 
 
-/* Interface styling */
+/* INTERFACE styling */
 
 #form_interface {
   padding-left: 10px;
@@ -54,6 +81,10 @@ div.item img{
   min-width: 230px;
   width: 25%;
   height: 100%;
+  box-shadow: -1px 0px 10px 3px black;
+  font-weight: normal;
+  font-style: none;
+
 }
 
 #trip_details{
@@ -67,6 +98,7 @@ div.item img{
   min-width: 230px;
   width: 25%;
   height: 100%;
+  box-shadow: -1px 0px 10px 3px black;
 }
 
 .map_user_profile {
@@ -75,4 +107,22 @@ div.item img{
   // position: absolute;
   // float:left;
   // z-index: 0;
+}
+
+/* SIGN UP/SIGN IN Styling */
+
+.sign_in_form {
+  background-color: rgba(140,36,82,0.8);
+  border-radius: 25em;
+  padding: 3.5em;
+  margin: 6.5em 3.5em 3.5em 3.5em;
+  text-align: center;
+}
+
+.sign_up_form {
+  background-color:  rgba(140,36,82,0.8);
+  border-radius: 25em;
+  padding: 3.5em;
+  margin: 3.5em 3.5em 3.5em 3.5em;
+  text-align: center;
 }
