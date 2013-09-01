@@ -8,13 +8,13 @@ $ ->
     # $('#search_results_all').fadeIn(200);
     for user in data.users
       console.log(user)
-      $('#users').append("<p id='search_results_users'><a href='"+user_path(@user.id)+"'>"  + user.username+ "</a></p>");
+      $('#users').append("<p id='search_results_users'><a href='/users/"+user.id+"'>"  + user.username+ "</a></p>");
     for trip in data.trips
       console.log(trip)
-      $('#trips').append("<p id='search_results_trips'><a href='"+trip_path(trip.id)+"'>" + trip.name+ "</a></p>");
+      $('#trips').append("<p id='search_results_trips'><a href='/trips/"+trip.id+"'>" + trip.name+ "</a></p>");
     for marker in data.markers
       console.log(marker)
-      $('#stops').append("<p id='search_results_markers'><a href='"+marker_path(marker.id)+"'>" + marker.address+ "</a></p>");
+      $('#stops').append("<p id='search_results_markers'><a href='/markers/"+marker.id+"'>" + marker.address+ "</a></p>");
 
   flash_error = (errors) ->
     $('#search_results_all').append("<p id='search_error'>"+errors+"</p>")
