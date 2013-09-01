@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
 
 
   def self.search_results query
-    self.where('LOWER(firstname) like :search OR LOWER(lastname) like :search OR LOWER(username) like :search OR LOWER(bio) like :search ', search: "%#{query}%")
+    self.where('LOWER(firstname) like :search OR LOWER(lastname) like :search OR LOWER(username) like :search OR LOWER(bio) like :search OR LOWER(location) like :search', search: "%#{query}%")
   end
 
   private
