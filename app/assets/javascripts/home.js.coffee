@@ -9,7 +9,7 @@ $ ->
       $('#search_results_all').append("<div id='result_line'><img src='/assets/user_icon.png' /><a href='/users/"+user.id+"'>"  + user.username+ "</a></div>");
     for trip in data.trips
       console.log(trip)
-      $('#search_results_all').append("<div id='result_line'><img src='/assets/trip_icon.png' /><a href='/trips/"+trip.id+"'>"  + trip.name+ "</a></div>");
+      $('#search_results_all').append("<div id='result_line'><img src='/assets/trip_icon.png' /><a href='/trips/"+trip.id+"'>"  + trip.name+ "</a><span id='trip_description'>" + '-  '  + trip.description+"</span></div>");
     for marker in data.markers
       console.log(marker)
       $('#search_results_all').append("<div id='result_line'><img src='/assets/marker_icon.png' /><a href='/markers/"+marker.id+"'>"  + marker.name+ "</a></div>");
