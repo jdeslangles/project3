@@ -60,6 +60,7 @@ $ ->
           position: myLatLng
           map: map
           icon: image
+          animation: google.maps.Animation.DROP
           # title: marker.name
         bounds.extend(myLatLng)
         myLatLng
