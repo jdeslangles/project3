@@ -38,7 +38,7 @@
       <h2 >Where do you want to go?</h2>
         <%= form_tag root_path, id:"submit_form_button", method: :post do |f| %>
         <%= text_field_tag :q, params[:q], class:"form-control", placeholder:"Take me to...", autofocus: :true %>
-        <%= submit_tag 'Search!' , name: nil, class:"btn btn-lg btn-primary btn-block"%>
+        <% submit_tag 'Search!' , name: nil, class:"btn btn-lg btn-primary btn-block"%>
         <% end %>
   </div>
 </div>
