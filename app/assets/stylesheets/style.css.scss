@@ -54,10 +54,16 @@ h2#search_title{
 
 #search_results_all a{
   color: $green;
-}
+  font-size: 1.125em;
+  vertical-align: middle;
+  }
 
 #result_line{
-  display: inline-block;
+  margin-bottom: 1em;
+}
+
+#result_line img{
+  margin-right: 0.6em;
 }
 
 /* MAP styling*/
