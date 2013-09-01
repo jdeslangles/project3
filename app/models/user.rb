@@ -17,12 +17,19 @@ class User < ActiveRecord::Base
 
   validate :avatar_size_validation
 
-  accepts_nested_attributes_for :trips
+  validates :first_name, presence: true, length:{minimum:2}
+  validates :last_name, presence: true, length:{minimum:2}
+  validates :username, presence: true, uniqueness: true, length:{maximum:15}
 
+  accepts_nested_attributes_for :trips
 
 
   def self.search_results query
     self.where('LOWER(firstname) like :search OR LOWER(lastname) like :search OR LOWER(username) like :search OR LOWER(bio) like :search OR LOWER(location) like :search', search: "%#{query}%")
+  end
+
+  def role?(role)
+    self.role == role
   end
 
   private
