@@ -1,3 +1,6 @@
+
+  <!-- Carousel -->
+
 <div id="carousel-example-generic" class="carousel slide">
   <!-- Indicators -->
   <ol class="carousel-indicators">
@@ -6,7 +9,7 @@
     <li data-target="#carousel-example-generic" data-slide-to="2"></li>
   </ol>
 
-  <!-- Wrapper for slides -->
+  <!-- Wrapper for Carousel slides -->
   <div class="carousel-inner">
     <div class="item ">
       <%= image_tag "footsteps.jpg"%>
@@ -19,7 +22,7 @@
     </div>
   </div>
 
-  <!-- Controls -->
+  <!-- Carousel Controls -->
   <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
     <span class="icon-prev"></span>
   </a>
@@ -28,20 +31,26 @@
   </a>
 </div>
 
+  <!-- Search -->
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
       <h2 >Where do you want to go?</h2>
         <%= form_tag root_path, id:"submit_form_button", method: :post do |f| %>
         <%= text_field_tag :q, params[:q], class:"form-control", placeholder:"Take me to...", autofocus: :true %>
-        <%= submit_tag 'Search!' , name: nil, class:"btn btn-lg btn-primary btn-block"%>
+        <% submit_tag 'Search!' , name: nil, class:"btn btn-lg btn-primary btn-block"%>
         <% end %>
   </div>
 </div>
 
 
+  <!-- Search Results  -->
+<div id="search_results_all">
 
-<div id="search_results_all"  style="display:none">
 </div>
+
+
+
+
 
 

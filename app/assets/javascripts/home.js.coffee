@@ -1,23 +1,41 @@
 $ ->
 
+# SEARCH FUNCTIONALITY
   render_results = (data)->
     $('#search_results_all').empty();
     $('#search_results_all').fadeIn(200);
-    console.log(data)
     for user in data.users
       console.log(user)
-      $('#search_results_all').append("<p id='search_results_users'>" + user.username+ "</p>");
+      $('#search_results_all').append("<p id='search_results_users'><a href='/users/"+user.id+"'>"  + user.username+ "</a></p>");
     for trip in data.trips
       console.log(trip)
-      $('#search_results_all').append("<p id='search_results_trips'>" + trip.name+ "</p>");
+      $('#search_results_all').append("<p id='search_results_trips'><a href='/trips/"+trip.id+"'>"  + trip.name+ "</a></p>");
     for marker in data.markers
       console.log(marker)
-      $('#search_results_all').append("<p id='search_results_markers'>" + marker.address+ "</p>");
+      $('#search_results_all').append("<p id='search_results_markers'><a href='/markers/"+marker.id+"'>"  + marker.name+ "</a></p>");
 
   flash_error = (errors) ->
-    $('#search_results_all').empty()
+    $('#search_results_all').empty();
     $('#search_results_all').append("<p id='search_error'>"+errors+"</p>")
     $("#search_results_all").fadeIn(200).delay(3000).fadeOut(200)
+
+
+  $('#submit_form_button').keyup (event)->
+    self = this
+    clearTimeout self.timer if self.timer
+    self.timer = setTimeout(->
+      self.time = null
+      query = $("#q").val()
+      $.ajax
+        type: "POST"
+        url: "/"
+        data:
+          q: query
+        success: render_results
+        error: (xhr) ->
+          errors = $.parseJSON(xhr.responseText).errors
+          flash_error errors
+    , 500)
 
   $('#submit_form_button').on "submit", (event) ->
     event.preventDefault()
@@ -33,6 +51,8 @@ $ ->
         flash_error errors
 
 
+
+#  CAROUSEL FUNCTIONALITY
   # $('.carousel').carousel({
   #   interval: 4000
   # });
