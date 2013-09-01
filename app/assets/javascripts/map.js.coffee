@@ -52,9 +52,9 @@ $ ->
 
     canvas = document.getElementById("googleMap")
     map = new google.maps.Map(canvas, mapOptions)
-    contentString = "<h2>marker name</h2>"
+    contentString = "<h2 id='infowindow'>marker name</h2>"
     infowindow = new google.maps.InfoWindow
-      content: "loading..."
+      # content: "loading..."
       maxWidth: 200
 
   # draws markers on map through a loop
