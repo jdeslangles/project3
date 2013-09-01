@@ -51,19 +51,28 @@ $ ->
     canvas = document.getElementById("googleMap")
     map = new google.maps.Map(canvas, mapOptions)
 
+
   # draws markers on map through a loop
     draw_markers = ->
       for marker in window.markers
         image = "/assets/markermap_icon.png"
         myLatLng = new google.maps.LatLng(marker.latitude, marker.longitude)
+        contentString = "<h2>marker name</h2>"
+        infowindow = new google.maps.InfoWindow
+          content: contentString
+          maxWidth: 200
         marker = new google.maps.Marker
           position: myLatLng
           map: map
           icon: image
           animation: google.maps.Animation.DROP
-          # title: marker.name
+          title: "marker name here"
+
         bounds.extend(myLatLng)
         myLatLng
+        google.maps.event.addListener marker, "click", ->
+          infowindow.open map, marker
+
 
    # sets boundaries of the maps
     bounds = new google.maps.LatLngBounds
@@ -77,6 +86,8 @@ $ ->
       strokeWeight: 2
 
     trip_path.setMap map
+
+
 
 
 # # user_profile_maps
