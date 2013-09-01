@@ -52,6 +52,11 @@ h2#search_title{
   text-align: center;
 }
 
+#search_results_all{
+  width: 40em;
+margin: 0 auto;
+}
+
 #search_results_all a{
   color: $green;
   font-size: 1.125em;

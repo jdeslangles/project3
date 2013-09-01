@@ -27,7 +27,7 @@ $ ->
       self.time = null
       query = $("#q").val()
       $.ajax
-        type: "POST"
+        type: "GET"
         url: "/"
         data:
           q: query
