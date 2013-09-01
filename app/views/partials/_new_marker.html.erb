@@ -13,25 +13,26 @@
 
   <div class="field">
     <%= f.label :name %><br />
-    <%= f.text_field :name %>
+    <%= f.text_field :name, class:"input_field" %>
   </div>
   <div class="field">
     <%= f.label :description %><br />
-    <%= f.text_area :description, :size => "32x5" %>
+    <%= f.text_area :description, :size => "32x5", class:"input_field" %>
   </div>
   <div class="field">
     <%= f.label :address %><br />
-    <%= f.text_field :address %>
+    <%= f.text_field :address, class:"input_field" %>
   </div>
   <div class="field" >
     <%= f.label :latitude%><br />
-    <%= f.text_field :latitude %>
+    <%= f.text_field :latitude, class:"input_field" %>
   </div>
   <div class="field" >
     <%= f.label :longitude %><br />
-    <%= f.text_field :longitude %>
+    <%= f.text_field :longitude, class:"input_field" %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <br>
+    <%= f.submit "Create marker", class:"btn btn-sm btn-primary" %>
   </div>
 <% end %>

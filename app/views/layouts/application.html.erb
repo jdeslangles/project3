@@ -9,7 +9,7 @@
   <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{ENV['GOOGLE']}&sensor=false" %>
   <%= csrf_meta_tags %>
 </head>
-<body <%= yield :user_id %>>
+<body class="<%=@body_class%>" <%= yield :user_id %>>
 
   <%= yield :map %>
 
