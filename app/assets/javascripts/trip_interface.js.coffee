@@ -8,12 +8,12 @@ $ ->
     reader.onload = (e) ->
       fileString = e.target.result
     reader.readAsDataURL(filebase)
+
   $('#create_trip_form').submit (event)->
     console.log "fgadfad"
     event.preventDefault()
     tripName = $("#name").val()
     tripDescription = $("#trip_description").val()
-    # tripCoverPhoto = $("#cover_photo").val()
     $.ajax
       type: "POST"
       url: "/trips.json"
@@ -21,7 +21,6 @@ $ ->
         name: tripName
         description: tripDescription
         fileData: fileString
-        # cover_photo: tripCoverPhoto
       success: (data)->
 
         $("#create_trip_form").hide()
