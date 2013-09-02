@@ -25,6 +25,7 @@ $ ->
           marker = new google.maps.Marker
             position: marker_position
             map: map
+            # icon: "marker_icon.png"
           bounds.extend(marker_position)
           latlngs.push marker_position
 
@@ -53,11 +54,13 @@ $ ->
   # draws markers on map through a loop
     draw_markers = ->
       for marker in window.markers
+        image = "/assets/markermap_icon.png"
         myLatLng = new google.maps.LatLng(marker.latitude, marker.longitude)
         marker = new google.maps.Marker
           position: myLatLng
           map: map
-          title: marker.name
+          icon: image
+          # title: marker.name
         bounds.extend(myLatLng)
         myLatLng
 
@@ -69,7 +72,7 @@ $ ->
     trip_stops = draw_markers()
     trip_path = new google.maps.Polyline
       path: trip_stops
-      strokeColor: "#7c2849"
+      strokeColor: "#7a2949"
       strokeWeight: 2
 
     trip_path.setMap map

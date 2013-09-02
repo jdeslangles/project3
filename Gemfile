@@ -11,6 +11,7 @@ gem 'gmaps4rails'
 gem 'devise'
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'cancan'
 
 group :development do
   # gem 'rspec-rails'

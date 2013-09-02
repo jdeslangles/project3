@@ -1,4 +1,5 @@
 class MarkersController < ApplicationController
+  load_and_authorize_resource
   # GET /markers
   # GET /markers.json
   def index

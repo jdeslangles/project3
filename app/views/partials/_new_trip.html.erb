@@ -15,15 +15,28 @@
     <%= f.label :name %><br />
     <%= text_field_tag :name, params[:name] %>
   </div>
+<!--   <div class="field">
+    < %= f.label :description %><br />
+    < %= text_area_tag :description, params[:description], size: "32x5" %> -->
+
+    <%= f.text_field :name, class:"input_field" %>
+  </div>
   <div class="field">
     <%= f.label :description %><br />
-    <%= text_area_tag :description, params[:description], size: "32x5" %>
+    <%= f.text_area :description, :size => "32x5", class:"input_field" %>
+  </div>
+  <div class="field">
+    <%= f.label :cover_photo%><br />
+    <%= f.file_field :cover_photo, :onchange =>"validateFiles(this);", :data => { :max_file_size => 1.megabyte } %>
   </div>
 <!--   <div class="field">
     < %= f.label :cover_photo%><br />
     < %= f.file_field :cover_photo, :onchange =>"validateFiles(this);", :data => { :max_file_size => 1.megabyte } %>
   </div> -->
   <div class="actions">
-    <%= f.submit %>
+    <br>
+    <%= f.submit "Create trip", class:"btn btn-sm btn-primary"%>
+    <br>
+    <br>
   </div>
 <% end %>
