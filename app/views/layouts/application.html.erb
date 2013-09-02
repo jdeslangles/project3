@@ -43,9 +43,9 @@
             <li>
               <%= form_tag root_path, class:"navbar-form navbar-left", id:"navbar_submit_form_button", html: {method: :post} do |f| %>
                 <div class="form-group">
-                  <%= text_field_tag :q, params[:q], class:"form-control"%>
+                  <%= text_field_tag :q, params[:q], class:"form-control input-sm"%>
                 </div>
-                <%= submit_tag 'Search!' , name: nil,  class:"btn btn-small"  %>
+                <%= submit_tag 'Search!' , name: nil,  class:"btn btn-xs"  %>
               <% end %>
             </li>
           <% end %>
