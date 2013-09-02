@@ -1,4 +1,4 @@
-<%= form_for trip, url: trip_interface_path, html: {id: "create_trip_form_button"}, method: :post do |f| %>
+<%= form_for trip, url: trip_interface_path, html: {id: "create_trip_form"}, method: :post do |f| %>
   <% if trip.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(trip.errors.count, "error") %> prohibited this trip from being saved:</h2>
@@ -15,16 +15,19 @@
     <%= f.label :name %><br />
     <%= text_field_tag :name, params[:name] %>
   </div>
-<!--   <div class="field">
-    < %= f.label :description %><br />
-    < %= text_area_tag :description, params[:description], size: "32x5" %> -->
 
-    <%= f.text_field :name, class:"input_field" %>
-  </div>
+<!--    <div class="field">
+    < %= f.label :description %><br />
+    < %= text_area_tag :description, params[:description], size: "32x5" %>
+
+   < %= f.text_field :name, class:"input_field" %>
+  </div> -->
+
   <div class="field">
     <%= f.label :description %><br />
     <%= f.text_area :description, :size => "32x5", class:"input_field" %>
   </div>
+
   <div class="field">
     <%= f.label :cover_photo%><br />
     <%= f.file_field :cover_photo, :onchange =>"validateFiles(this);", :data => { :max_file_size => 1.megabyte } %>
@@ -40,3 +43,25 @@
     <br>
   </div>
 <% end %>
+
+
+
+<div id="trip_details" style="display: none">
+  <p class="name">
+
+  </p>
+
+  <p class="image">
+    <%=image_tag "" %>
+  </p>
+
+  <p class="description">
+    <b>Description:</b>
+    <%= @trip.description %>
+  </p>
+
+  <p>
+    COMING SOON
+  </p>
+
+ </div>

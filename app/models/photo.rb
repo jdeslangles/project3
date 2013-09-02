@@ -1,3 +1,4 @@
+
 class Photo < ActiveRecord::Base
   belongs_to :marker
   attr_accessible :description, :name, :photo_picture, :marker_id
@@ -13,7 +14,6 @@ class Photo < ActiveRecord::Base
   def photo_picture_size_validation
     errors[:photo_picture, "Photo"] << "should be less than 1MB" if photo_picture.size > (1.2).megabyte
   end
-
 
 
 end

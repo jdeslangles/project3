@@ -57,16 +57,13 @@ class TripsController < ApplicationController
   # POST /trips
   # POST /trips.json
   def create
-    @trip = Trip.new(params[:trip])
+    @trip = Trip.new(name: params[:name], description: params[:description])
+    @trip.decode_base64 params[:fileData]
     @trip.user  =  current_user
-    respond_to do |format|
-      if @trip.save
-        format.html { redirect_to @trip, notice: 'Trip was successfully created.' }
-        format.json { render json: @trip, status: :created, location: @trip }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @trip.errors, status: :unprocessable_entity }
-      end
+    if @trip.save
+        render json: @trip
+    else
+      render json: {error: "something went wrong"}, status: 422
     end
   end
 
