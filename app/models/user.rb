@@ -11,21 +11,29 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   has_many :trips, dependent: :destroy
+  has_many :markers, through: :trips, dependent: :destroy
   attr_accessible :bio, :birthdate, :email, :firstname, :lastname, :password, :password_confirmation, :remember_me, :username, :avatar, :location
 
   mount_uploader :avatar, UserAvatarUploader
 
   validate :avatar_size_validation
 
-  validates :first_name, presence: true, length:{minimum:2}
-  validates :last_name, presence: true, length:{minimum:2}
+  validates :firstname, presence: true, length:{minimum:2}
+  validates :lastname, presence: true, length:{minimum:2}
   validates :username, presence: true, uniqueness: true, length:{maximum:15}
 
   accepts_nested_attributes_for :trips
 
+  class << self
+    def search_results query
+      where(id: select('users.id').joins(:trips).joins(:markers).where(
+        [search_query, Trip.search_query, Marker.search_query].join(' or '),
+        search: "%#{query}%"))
+    end
 
-  def self.search_results query
-    self.where('LOWER(firstname) like :search OR LOWER(lastname) like :search OR LOWER(username) like :search OR LOWER(bio) like :search ', search: "%#{query}%")
+    def search_query
+      'LOWER(users.firstname) like :search OR LOWER(users.lastname) like :search OR LOWER(users.username) like :search OR LOWER(users.bio) like :search'
+    end
   end
 
   def role?(role)

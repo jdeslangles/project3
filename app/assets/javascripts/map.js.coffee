@@ -1,3 +1,5 @@
+infowindow = null
+
 $ ->
 
 # MULTIPLE MAPS ON USER PAGE
@@ -50,6 +52,10 @@ $ ->
 
     canvas = document.getElementById("googleMap")
     map = new google.maps.Map(canvas, mapOptions)
+    contentString = "<h2 id='infowindow'>marker name</h2>"
+    infowindow = new google.maps.InfoWindow
+      # content: "loading..."
+      maxWidth: 200
 
   # draws markers on map through a loop
     draw_markers = ->
@@ -57,13 +63,22 @@ $ ->
       for marker in markers_array
         image = "/assets/markermap_icon.png"
         myLatLng = new google.maps.LatLng(marker.latitude, marker.longitude)
+
         marker = new google.maps.Marker
           position: myLatLng
           map: map
           icon: image
-          # title: marker.name
+          animation: google.maps.Animation.DROP
+          title: "marker name here"
+
+        google.maps.event.addListener marker, "click", ->
+          infowindow.setContent contentString
+          infowindow.open map, this
+
         bounds.extend(myLatLng)
         myLatLng
+
+
 
    # sets boundaries of the maps
     bounds = new google.maps.LatLngBounds
@@ -77,6 +92,8 @@ $ ->
       strokeWeight: 2
 
     trip_path.setMap map
+
+
 
 
 # # user_profile_maps
