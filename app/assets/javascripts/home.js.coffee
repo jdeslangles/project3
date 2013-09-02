@@ -19,30 +19,11 @@ $ ->
     $('#search_results_all').append("<p id='search_error'>"+errors+"</p>")
     $("#search_results_all").fadeIn(200).delay(3000).fadeOut(200)
 
-
-  $('#submit_form_button').keyup (event)->
-    self = this
-    clearTimeout self.timer if self.timer
-    self.timer = setTimeout(->
-      self.time = null
-      query = $("#q").val()
-      $.ajax
-        type: "GET"
-        url: "/"
-        data:
-          q: query
-        success: render_results
-        error: (xhr) ->
-          errors = $.parseJSON(xhr.responseText).errors
-          flash_error errors
-    , 500)
-
-  $('#submit_form_button').on "submit", (event) ->
-    event.preventDefault()
+  search = ->
     query = $("#q").val()
     $.ajax
-      type: "POST"
-      url: "/"
+      type: "GET"
+      url: "/search"
       data:
         q: query
       success: render_results
@@ -50,7 +31,21 @@ $ ->
         errors = $.parseJSON(xhr.responseText).errors
         flash_error errors
 
+  $('#submit_form_button').keyup (event)->
+    self = this
+    clearTimeout self.timer if self.timer
+    self.timer = setTimeout(->
+      self.time = null
+      search()
 
+    , 500)
+
+  $('#submit_form_button').on "submit", (event) ->
+    event.preventDefault()
+    search()
+
+  if($("#q").val().length> 0)
+    search()
 
 #  CAROUSEL FUNCTIONALITY
   # $('.carousel').carousel({

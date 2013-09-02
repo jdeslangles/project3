@@ -12,6 +12,7 @@ $ ->
       mapTypeId: google.maps.MapTypeId.ROADMAP
       scrollwheel: false
 
+
     user_id = $("body").attr("data-user-id")
 
     $.getJSON "/users/" + user_id + "/trips.json", (data) ->
@@ -22,12 +23,13 @@ $ ->
         map = new google.maps.Map(nativeMapElement, mapOptions)
         bounds = new google.maps.LatLngBounds()
         latlngs = []
+        image = "/assets/markermap_mini_icon.png"
         for marker in trip.markers
           marker_position = new google.maps.LatLng marker.latitude, marker.longitude
           marker = new google.maps.Marker
             position: marker_position
             map: map
-            # icon: "marker_icon.png"
+            icon: image
           bounds.extend(marker_position)
           latlngs.push marker_position
 
@@ -42,19 +44,17 @@ $ ->
 
 # UNIQUE MAP ON TRIP INTERFACE AND INDIVIDUAL MAP
 
-# sets map options
+# sets map options for trip interface
   if $("#googleMap").length > 0
     mapOptions =
       zoom: 1
       center: new google.maps.LatLng(0, 0)
       mapTypeId: google.maps.MapTypeId.ROADMAP
-      scrollwheel: false
+      # scrollwheel: false
 
     canvas = document.getElementById("googleMap")
     map = new google.maps.Map(canvas, mapOptions)
-    contentString = "<h2 id='infowindow'>marker name</h2>"
     infowindow = new google.maps.InfoWindow
-      # content: "loading..."
       maxWidth: 200
 
   # draws markers on map through a loop
@@ -63,16 +63,16 @@ $ ->
       for marker in markers_array
         image = "/assets/markermap_icon.png"
         myLatLng = new google.maps.LatLng(marker.latitude, marker.longitude)
-
+        marker_name = "<h2 id='infowindow'>#{marker.name}</h2>"
         marker = new google.maps.Marker
           position: myLatLng
           map: map
           icon: image
           animation: google.maps.Animation.DROP
-          title: "marker name here"
+          title: marker_name
 
         google.maps.event.addListener marker, "click", ->
-          infowindow.setContent contentString
+          infowindow.setContent this.title
           infowindow.open map, this
 
         bounds.extend(myLatLng)
@@ -94,61 +94,3 @@ $ ->
     trip_path.setMap map
 
 
-
-
-# # user_profile_maps
-#   map_elements = $(".map_user_profile")
-#   for map_div in map_elements
-#     console.log map_div
-#     mapOptions =
-#       zoom: 10
-#       center: new google.maps.LatLng(0, 0)
-#       mapTypeId: google.maps.MapTypeId.ROADMAP
-#       scrollwheel: false
-
-#     canvas = document.getElementById("googleMap")
-#     map = new google.maps.Map(canvas, mapOptions)
-
-#     # draws markers on map through a loop
-#     draw_markers = ->
-#       trip_markers = $(".trip_markers")
-#       for trip in trip_markers
-#         console.log trip
-#         for marker in window.trip
-#           myLatLng = new google.maps.LatLng(marker.latitude, marker.longitude)
-#           marker = new google.maps.Marker
-#             position: myLatLng
-#             map: map
-#             title: marker.name
-#           bounds.extend(myLatLng)
-#           myLatLng
-
-#     # sets boundaries of the maps
-#     bounds = new google.maps.LatLngBounds
-#     map.fitBounds(bounds)
-
-#     # draws line to each marker
-#     trip_stops = draw_markers()
-#     trip_path = new google.maps.Polyline
-#       path: trip_stops
-#       strokeColor: "#7c2849"
-#       strokeWeight: 2
-
-#     trip_path.setMap map
-
-
-
-
-#   #   $(function(){
-#   #   var mapOptions,
-#   #         canvas,
-#   #         map;
-#   #   var latitude = $("#latitude span").text();
-#   #   var longitude = $("#longitude span").text();
-
-#   # //default map display
-#   #   mapOptions = {
-#   #     zoom: 10,
-#   #     center: new google.maps.LatLng(latitude, longitude),
-#   #     mapTypeId: google.maps.MapTypeId.ROADMAP
-#   #   };

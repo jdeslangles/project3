@@ -14,11 +14,10 @@ TravelBlog::Application.routes.draw do
   end
   resources :trips
 
-  match 'search', to: 'search#index', via: [:get, :post], as: :search
-
   match '/trip_interface', to: 'trips#trip_interface', as: :trip_interface
-  get '/my_profile', to: 'users#my_profile', as: :my_profile
 
+  get '/my_profile', to: 'users#my_profile', as: :my_profile
+  get 'search', to: "home#search", as: :search
   root :to => 'home#home'
 
   # The priority is based upon order of creation:
