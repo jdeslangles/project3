@@ -21,7 +21,9 @@ $ ->
         description: tripDescription
         fileData: fileString
       success: (data)->
-
+        # add a new marker to the map
+        # then recalculate the bounds of the map
+        #then , if the marker is not the first one , draw a line between the differnerts martkers
         $("#create_trip_form").hide()
         $("#trip_info .name").text data.name
         $("#trip_info .description").text data.description
@@ -41,6 +43,9 @@ $ ->
     markerDescription = $("#marker_description").val()
     markerAddress = $("#marker_address").val()
     markerTripId = $("#trip_id").val()
+
+    #setting link to trip show
+    $("#leave_trip_edition").attr "href", "/trips/#{markerTripId}"
     $.ajax
       type: "POST"
       url: "/markers.json"
