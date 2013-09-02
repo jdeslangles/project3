@@ -91,4 +91,24 @@ $ ->
 
     trip_path.setMap map
 
+    put_marker = ->
+      image = "/assets/markermap_icon.png"
+      latitude = $("#latitude").val()
+      longitude = $("#longitude").val()
+      myLatLng = new google.maps.LatLng(latitude, longitude)
+      marker_name = "<h2 id='infowindow'>#{marker.name}</h2>"
+      marker = new google.maps.Marker
+        position: myLatLng
+        map: map
+        icon: image
+        animation: google.maps.Animation.DROP
+        title: marker_name
+
+      google.maps.event.addListener marker, "click", ->
+        infowindow.setContent this.title
+        infowindow.open map, this
+
+
+
+
 
