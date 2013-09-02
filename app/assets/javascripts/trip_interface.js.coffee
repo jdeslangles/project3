@@ -21,9 +21,6 @@ $ ->
         description: tripDescription
         fileData: fileString
       success: (data)->
-        # add a new marker to the map
-        # then recalculate the bounds of the map
-        #then , if the marker is not the first one , draw a line between the differnerts martkers
         $("#create_trip_form").hide()
         $("#trip_info .name").text data.name
         $("#trip_info .description").text data.description

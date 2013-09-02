@@ -5,7 +5,7 @@ $ ->
 # MULTIPLE MAPS ON USER PAGE
 
 # sets multiple maps on user page
-  if $('#user_trips').length > 0
+  if ($("#user_trips").length > 0)
     mapOptions =
       zoom: 1
       center: new google.maps.LatLng(0, 0)
@@ -45,9 +45,9 @@ $ ->
 # UNIQUE MAP ON TRIP INTERFACE AND INDIVIDUAL MAP
 
 # sets map options for trip interface
-  if $("#googleMap").length > 0
+  if ($("#googleMap").length > 0)
     mapOptions =
-      zoom: 1
+      zoom: 2
       center: new google.maps.LatLng(0, 0)
       mapTypeId: google.maps.MapTypeId.ROADMAP
       # scrollwheel: false
@@ -78,19 +78,38 @@ $ ->
         bounds.extend(myLatLng)
         myLatLng
 
+    if markers?
+     # sets boundaries of the maps
+      bounds = new google.maps.LatLngBounds
+      map.fitBounds(bounds)
 
+    # draws line to each marker
+      trip_stops = draw_markers()
+      trip_path = new google.maps.Polyline
+        path: trip_stops
+        strokeColor: "#7a2949"
+        strokeWeight: 2
 
-   # sets boundaries of the maps
-    bounds = new google.maps.LatLngBounds
-    map.fitBounds(bounds)
+      trip_path.setMap map
 
-  # draws line to each marker
-    trip_stops = draw_markers()
-    trip_path = new google.maps.Polyline
-      path: trip_stops
-      strokeColor: "#7a2949"
-      strokeWeight: 2
+  if ($("#googleMap_marker").length > 0)
+    latitude = $("#latitude").text()
+    longitude = $("#longitude").text()
+    mapOptions =
+      zoom: 8
+      center: new google.maps.LatLng(latitude, longitude)
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+      # scrollwheel: false
 
-    trip_path.setMap map
+    canvas = document.getElementById("googleMap_marker")
+    map = new google.maps.Map(canvas, mapOptions)
+    image = "/assets/markermap_icon.png"
+    myLatLng = new google.maps.LatLng(latitude, longitude)
+    marker = new google.maps.Marker
+      position: myLatLng
+      map: map
+      icon: image
+      animation: google.maps.Animation.DROP
+
 
 
