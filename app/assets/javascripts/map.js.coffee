@@ -3,13 +3,15 @@ infowindow = null
 $ ->
 
 # MULTIPLE MAPS ON USER PAGE
+
 # sets multiple maps on user page
   if $('#user_trips').length > 0
     mapOptions =
       zoom: 1
-      center: new google.maps.LatLng(0,0)
+      center: new google.maps.LatLng(0, 0)
       mapTypeId: google.maps.MapTypeId.ROADMAP
       scrollwheel: false
+
 
     user_id = $("body").attr("data-user-id")
 
@@ -46,16 +48,16 @@ $ ->
   if $("#googleMap").length > 0
     mapOptions =
       zoom: 1
-      center: new google.maps.LatLng(0,0)
+      center: new google.maps.LatLng(0, 0)
       mapTypeId: google.maps.MapTypeId.ROADMAP
-      scrollwheel: false
+      # scrollwheel: false
 
     canvas = document.getElementById("googleMap")
     map = new google.maps.Map(canvas, mapOptions)
     infowindow = new google.maps.InfoWindow
       maxWidth: 200
 
-
+  # draws markers on map through a loop
     draw_markers = ->
       for marker in window.markers
         image = "/assets/markermap_icon.png"
@@ -67,26 +69,27 @@ $ ->
           icon: image
           animation: google.maps.Animation.DROP
           title: marker_name
-        if marker
-          google.maps.event.addListener marker, "click", ->
-            infowindow.setContent this.title
-            infowindow.open map, this
 
-          bounds.extend(myLatLng)
-          myLatLng
+        google.maps.event.addListener marker, "click", ->
+          infowindow.setContent this.title
+          infowindow.open map, this
+
+        bounds.extend(myLatLng)
+        myLatLng
 
 
-     # sets boundaries of the maps
-      bounds = new google.maps.LatLngBounds
-      map.fitBounds(bounds)
 
-    # draws markers and lines to each marker
-      trip_stops = draw_markers()
-      trip_path = new google.maps.Polyline
-        path: trip_stops
-        strokeColor: "#7a2949"
-        strokeWeight: 2
+   # sets boundaries of the maps
+    bounds = new google.maps.LatLngBounds
+    map.fitBounds(bounds)
 
-      trip_path.setMap map
+  # draws line to each marker
+    trip_stops = draw_markers()
+    trip_path = new google.maps.Polyline
+      path: trip_stops
+      strokeColor: "#7a2949"
+      strokeWeight: 2
+
+    trip_path.setMap map
 
 
