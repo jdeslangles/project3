@@ -63,13 +63,13 @@ $ ->
       for marker in markers_array
         image = "/assets/markermap_icon.png"
         myLatLng = new google.maps.LatLng(marker.latitude, marker.longitude)
-        marker_name = "<h2 id='infowindow'>#{marker.name}</h2>"
+        marker_details = "<h2 id='infowindow'>#{marker.name}</h2><p id='infowindow_description'>#{marker.description.split(' ').slice(0,15).join(' ')}... <a href='/markers/#{(marker.id)}'>>> read full post</a></p>"
         marker = new google.maps.Marker
           position: myLatLng
           map: map
           icon: image
           animation: google.maps.Animation.DROP
-          title: marker_name
+          title: marker_details
 
         google.maps.event.addListener marker, "click", ->
           infowindow.setContent this.title
