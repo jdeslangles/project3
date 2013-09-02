@@ -12,9 +12,14 @@ class Marker < ActiveRecord::Base
 
   accepts_nested_attributes_for :photos
 
+  class << self
+    def search_results query
+      self.where(search_query, search: "%#{query}%")
+    end
 
-  def self.search_results query
-    self.where('LOWER(name) like :search OR LOWER(description) like :search OR LOWER(address) like :search ', search: "%#{query}%")
+    def search_query
+      "LOWER(markers.name) like :search OR LOWER(markers.description) like :search OR LOWER(markers.address) like :search"
+    end
   end
 
 end

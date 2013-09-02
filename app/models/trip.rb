@@ -10,8 +10,14 @@ class Trip < ActiveRecord::Base
 
   accepts_nested_attributes_for :markers
 
-  def self.search_results query
-    self.where('LOWER(name) like :search OR LOWER(description) like :search OR LOWER(user) like :search ', search: "%#{query}%")
+  class << self
+    def search_results query
+      self.where(search_query, search: "%#{query}%")
+    end
+
+    def search_query
+      'LOWER(trips.name) like :search OR LOWER(trips.description) like :search '
+    end
   end
 
   private
