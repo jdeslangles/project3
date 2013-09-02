@@ -92,24 +92,24 @@ $ ->
 
     trip_path.setMap map
 
-    put_marker = ->
-      image = "/assets/markermap_icon.png"
-      latitude = $("#latitude").val()
-      longitude = $("#longitude").val()
-      myLatLng = new google.maps.LatLng(latitude, longitude)
-      marker_name = "<h2 id='infowindow'>#{marker.name}</h2>"
-      marker = new google.maps.Marker
-        position: myLatLng
-        map: map
-        icon: image
-        animation: google.maps.Animation.DROP
-        title: marker_name
+  if ($("#googleMap_marker").length > 0)
+    latitude = $("#latitude").text()
+    longitude = $("#longitude").text()
+    mapOptions =
+      zoom: 8
+      center: new google.maps.LatLng(latitude, longitude)
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+      # scrollwheel: false
 
-      google.maps.event.addListener marker, "click", ->
-        infowindow.setContent this.title
-        infowindow.open map, this
-
-
+    canvas = document.getElementById("googleMap_marker")
+    map = new google.maps.Map(canvas, mapOptions)
+    image = "/assets/markermap_icon.png"
+    myLatLng = new google.maps.LatLng(latitude, longitude)
+    marker = new google.maps.Marker
+      position: myLatLng
+      map: map
+      icon: image
+      animation: google.maps.Animation.DROP
 
 
 

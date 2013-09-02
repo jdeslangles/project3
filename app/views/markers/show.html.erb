@@ -1,7 +1,7 @@
 <div><p id="notice"><%= notice %></p></div>
 
 <% content_for :map do %>
-  <div id="googleMap"></div>
+  <div id="googleMap_marker"></div>
 <% end %>
 
 <div id="trip_details">
@@ -20,14 +20,14 @@
   <%= @marker.address %>
 </p>
 
-<p  id="latitude" >
+<p  >
   <b>Latitude:</b>
-  <span><%= @marker.latitude %></span>
+  <span id="latitude" ><%= @marker.latitude %></span>
 </p>
 
-<p  id="longitude">
+<p>
   <b>Longitude:</b>
-  <span><%= @marker.longitude %></span>
+  <span  id="longitude"><%= @marker.longitude %></span>
 </p>
 
 <p>
