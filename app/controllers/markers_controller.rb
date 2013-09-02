@@ -32,6 +32,12 @@ class MarkersController < ApplicationController
     end
   end
 
+  def trip_interface
+    @trip  = Trip.new
+    @marker = @trip.markers.new
+    render :trip_interface
+  end
+
   # GET /markers/1/edit
   def edit
     @marker = Marker.find(params[:id])
@@ -40,16 +46,16 @@ class MarkersController < ApplicationController
   # POST /markers
   # POST /markers.json
   def create
-    @marker = Marker.new(params[:marker])
-
-    respond_to do |format|
-      if @marker.save
-        format.html { redirect_to @marker, notice: 'Marker was successfully created.' }
-        format.json { render json: @marker, status: :created, location: @marker }
+    @trip = current_user.trips.find(params[:trip_id])
+    if @trip
+      marker = @trip.markers.create params[:marker]
+      if marker.save
+        render json: marker
       else
-        format.html { render action: "new" }
-        format.json { render json: @marker.errors, status: :unprocessable_entity }
+        render json: {error: "Something went wrong"}, status: 422
       end
+    else
+      render json: {error: "Something went wrong"}, status: 422
     end
   end
 
