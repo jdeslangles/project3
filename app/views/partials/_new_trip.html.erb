@@ -4,38 +4,44 @@
       <h2><%= pluralize(trip.errors.count, "error") %> prohibited this trip from being saved:</h2>
 
       <ul>
-      <% trip.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
+        <% trip.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
 
   <div class="field">
     <%= f.label :name %><br />
-    <%= text_field_tag :name, params[:name] %>
+    <%= text_field_tag :name, params[:name], class:"input_field" %>
   </div>
+
   <div class="field">
     <%= f.label :description %><br />
-    <%= f.text_area :description, :size => "32x5", class:"input_field" %>
+    <%= f.text_area :description, :size => "25x5", class:"input_field" %>
   </div>
 
   <div class="field">
     <%= f.label :cover_photo%><br />
     <%= f.file_field :cover_photo, :onchange =>"validateFiles(this);", :data => { :max_file_size => 1.megabyte } %>
   </div>
+
   <div class="actions">
     <br>
     <%= f.submit "Create trip", class:"btn btn-sm btn-primary"%>
     <br>
     <br>
   </div>
+
 <% end %>
 
 
-<div id="trip_details" style="display: none">
-  <p class="name">
 
+
+<div id="trip_details" style="display: none">
+
+  <p class="name">
+    <%=@trip.name%>
   </p>
 
   <p class="image">
@@ -50,4 +56,5 @@
   <p>
     COMING SOON
   </p>
+
  </div>
