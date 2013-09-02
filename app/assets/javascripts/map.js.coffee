@@ -59,7 +59,8 @@ $ ->
 
   # draws markers on map through a loop
     draw_markers = ->
-      for marker in window.markers
+      markers_array = window.markers || []
+      for marker in markers_array
         image = "/assets/markermap_icon.png"
         myLatLng = new google.maps.LatLng(marker.latitude, marker.longitude)
         marker_name = "<h2 id='infowindow'>#{marker.name}</h2>"

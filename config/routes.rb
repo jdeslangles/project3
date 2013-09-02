@@ -14,7 +14,8 @@ TravelBlog::Application.routes.draw do
   end
   resources :trips
 
-  get '/trip_interface', to: 'trips#trip_interface', as: :trip_interface
+  match '/trip_interface', to: 'trips#trip_interface', as: :trip_interface
+
   get '/my_profile', to: 'users#my_profile', as: :my_profile
   get 'search', to: "home#search", as: :search
   root :to => 'home#home'

@@ -1,38 +1,54 @@
-<%= form_for(marker) do |f| %>
-  <% if marker.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(marker.errors.count, "error") %> prohibited this marker from being saved:</h2>
+<div id="marker_info" style="display: none">
+  <p>
+      Add a marker on your itinerary:
+  </p>
+  <%= form_for marker, url: trip_interface_path, html: {id: "create_marker_form"}, method: :post do |f| %>
+    <%= hidden_field_tag id="trip_id", "" %>
+    <% if marker.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(marker.errors.count, "error") %> prohibited this marker from being saved:</h2>
 
-      <ul>
-      <% marker.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+        <ul>
+        <% marker.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :name %><br />
+      <%= f.text_field :name, class:"input_field" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :description %><br />
+      <%= f.text_area :description, :size => "29x5", class:"input_field" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :address %><br />
+      <%= f.text_field :address, class:"input_field" %>
+    </div>
+
+<!--     <div class="field" >
+      < %= f.label :latitude%><br />
+      < %= f.text_field :latitude, class:"input_field" %>
+    </div>
+
+    <div class="field" >
+      < %= f.label :longitude %><br />
+      < %= f.text_field :longitude, class:"input_field" %>
+    </div> -->
+
+    <div class="actions">
+      <br>
+      <%= f.submit "Create marker", class:"btn btn-sm btn-primary" %>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, class:"input_field" %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_area :description, :size => "32x5", class:"input_field" %>
-  </div>
-  <div class="field">
-    <%= f.label :address %><br />
-    <%= f.text_field :address, class:"input_field" %>
-  </div>
-  <div class="field" >
-    <%= f.label :latitude%><br />
-    <%= f.text_field :latitude, class:"input_field" %>
-  </div>
-  <div class="field" >
-    <%= f.label :longitude %><br />
-    <%= f.text_field :longitude, class:"input_field" %>
-  </div>
-  <div class="actions">
-    <br>
-    <%= f.submit "Create marker", class:"btn btn-sm btn-primary" %>
-  </div>
-<% end %>
+  <p>
+    Add another stop?
+  </p>
+  <%=link_to "Yes"%><%=link_to "No, my trip is complete!"%>
+</div>
