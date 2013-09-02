@@ -22,12 +22,13 @@ $ ->
         map = new google.maps.Map(nativeMapElement, mapOptions)
         bounds = new google.maps.LatLngBounds()
         latlngs = []
+        image = "/assets/markermap_mini_icon.png"
         for marker in trip.markers
           marker_position = new google.maps.LatLng marker.latitude, marker.longitude
           marker = new google.maps.Marker
             position: marker_position
             map: map
-            # icon: "marker_icon.png"
+            icon: image
           bounds.extend(marker_position)
           latlngs.push marker_position
 
