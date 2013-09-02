@@ -1,6 +1,10 @@
 class HomeController < ApplicationController
 
   def home
+      render :home
+  end
+
+  def search
     hash = {}
     if params[:q]
         render(json: { errors: "Please enter a search term."}, status: :unprocessable_entity) and return if params[:q].blank?
