@@ -24,10 +24,10 @@ $ ->
       success: (data)->
 
         $("#create_trip_form").hide()
-        $("#trip_details .name").text data.name
-        $("#trip_details .description").text data.description
-        $("#trip_details .image img").attr "src", data.cover_photo.thumb.url
-        $("#trip_details").show()
+        $("#trip_info .name").text data.name
+        $("#trip_info .description").text data.description
+        $("#trip_info .image img").attr "src", data.cover_photo.thumb.url
+        $("#trip_info").show()
       error: (xhr) ->
         errors = $.parseJSON(xhr.responseText).errors
         if errors?
