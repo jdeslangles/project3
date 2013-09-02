@@ -17,8 +17,8 @@ class User < ActiveRecord::Base
 
   validate :avatar_size_validation
 
-  validates :first_name, presence: true, length:{minimum:2}
-  validates :last_name, presence: true, length:{minimum:2}
+  validates :firstname, presence: true, length:{minimum:2}
+  validates :lastname, presence: true, length:{minimum:2}
   validates :username, presence: true, uniqueness: true, length:{maximum:15}
 
   accepts_nested_attributes_for :trips
