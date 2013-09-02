@@ -31,6 +31,11 @@
       <%= f.text_field :address, class:"input_field" %>
     </div>
 
+    <div class="field">
+      <%= f.label :photo%><br />
+      <%= f.file_field :photo, :onchange =>"validateFiles(this);", :data => { :max_file_size => 1.megabyte } %>
+    </div>
+
     <div class="actions">
       <br>
       <%= f.submit "Create marker", class:"btn btn-sm btn-primary" %>

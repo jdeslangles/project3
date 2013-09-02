@@ -23,9 +23,6 @@ class Trip < ActiveRecord::Base
     end
   end
 
-
-
-
   def decode_base64 data
     data = Base64.decode64 data.gsub(/^data:.+,/, '')
     file = Tempfile.new ["thumbnail", ".png"]

@@ -2,6 +2,7 @@ $ ->
   fileString = null
   fileAsString: ->
     fileReader.readAsDataURL( fileObject )
+
   $('#trip_cover_photo').change (event)->
     filebase = event.target.files[0]
     reader = new FileReader();
@@ -33,6 +34,15 @@ $ ->
         if errors?
           flash_error errors
 
+
+  $('#marker_photo').change (event)->
+    filebase = event.target.files[0]
+    reader = new FileReader();
+    reader.onload = (e) ->
+      fileString = e.target.result
+    reader.readAsDataURL(filebase)
+
+
   $('#create_marker_form').submit (event)->
     console.log "TADAAA"
     event.preventDefault()
@@ -51,11 +61,13 @@ $ ->
           name: markerName
           description: markerDescription
           address: markerAddress
+          fileData: fileString
         trip_id: markerTripId
       success: ->
         $("#marker_name").val('')
         $("#marker_description").val('')
         $("#marker_address").val('')
+        $("#marker_photo").val('')
       error: (xhr)->
         errors = $.parseJSON(xhr.responseText).errors
         if errors?

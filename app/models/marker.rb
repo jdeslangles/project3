@@ -1,3 +1,4 @@
+require "base64"
 class Marker < ActiveRecord::Base
   belongs_to :trip
 
@@ -21,6 +22,13 @@ class Marker < ActiveRecord::Base
     end
   end
 
+  def decode_base64 data
+    data = Base64.decode64 data.gsub(/^data:.+,/, '')
+    file = Tempfile.new ["thumbnail", ".png"]
+    file.binmode
+    file.write data
+    self.photo = file
+  end
 
   private
   def photo_size_validation
