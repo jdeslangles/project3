@@ -63,7 +63,7 @@ $ ->
       for marker in markers_array
         image = "/assets/markermap_icon.png"
         myLatLng = new google.maps.LatLng(marker.latitude, marker.longitude)
-        marker_details = "<h2 id='infowindow'>#{marker.name}</h2><p id='infowindow_description'>#{marker.description.split(' ').slice(0,15).join(' ')}... <a href='/markers/#{(marker.id)}'>>> read full post</a></p>"
+        marker_details = "<h2 id='infowindow'>#{marker.name}</h2><p id='infowindow_description'>#{marker.description.split(' ').slice(0,15).join(' ')}... <div id='infowindow_link'><a href='/markers/#{(marker.id)}'>read full post >> </a></div></p>"
         marker = new google.maps.Marker
           position: myLatLng
           map: map
