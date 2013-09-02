@@ -78,7 +78,9 @@ $ ->
         bounds.extend(myLatLng)
         myLatLng
 
+
     if markers?
+
      # sets boundaries of the maps
       bounds = new google.maps.LatLngBounds
       map.fitBounds(bounds)
@@ -91,6 +93,7 @@ $ ->
         strokeWeight: 2
 
       trip_path.setMap map
+
 
   if ($("#googleMap_marker").length > 0)
     latitude = $("#latitude").text()
