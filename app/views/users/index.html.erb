@@ -17,21 +17,29 @@
 
 <% @users.each do |user| %>
   <tr>
-    <td><%=image_tag user.avatar.mini, class: "img-rounded" %></td>
-    <td><%= user.username %></td>
+    <td>
+        <% if user.avatar? %>
+            <%=image_tag user.avatar.mini, class: "img-rounded" %>
+        <% end %>
+    </td>
+    <td><%= user.username.humanize %></td>
     <td><%= user.email %></td>
     <td><%= user.location %></td>
 <!--     <td>< %= user.firstname %></td>
     <td>< %= user.lastname %></td>
     <td>< %= user.bio %></td> -->
     <td><%= user.birthdate %></td>
-    <td><%= link_to 'Show', user %></td>
-    <td><%= link_to 'Edit', edit_user_path(user) %></td>
-    <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'View', user %></td>
+    <td>
+    <% if current_user == user %>
+        <%= link_to 'Edit', edit_user_path(user) %>
+    <% end %>
+    </td>
+    <td>
+    <%if can? :update, user and current_user.role == 'registered' || 'admin' %>
+        <%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <%end%>
+    </td>
   </tr>
 <% end %>
 </table>
-
-<br />
-
-<%= link_to 'New User', new_user_path %>

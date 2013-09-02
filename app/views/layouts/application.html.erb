@@ -25,7 +25,11 @@
     </div>
     <div class="collapse navbar-collapse navbar-ex8-collapse">
       <ul class="nav navbar-nav">
-        <li><%= link_to('New trip', trip_interface_path)  %></li>
+        <% if can? :create, Trip %>
+          <li><%= link_to('New trip', trip_interface_path)  %></li>
+        <% else %>
+          <li><%= link_to('New trip', login_path)  %></li>
+        <% end %>
         <li><%= link_to('Trips', trips_path)  %></li>
         <li><%= link_to('Markers', markers_path)  %></li>
         <li><%= link_to('Users', users_path)  %></li>
