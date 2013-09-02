@@ -41,14 +41,15 @@
 
           <% unless request.env["PATH_INFO"] == "/" %>
             <li>
-              <%= form_tag root_path, class:"navbar-form navbar-left", html: {method: :post} do |f| %>
+              <%= form_tag root_path, class:"navbar-form navbar-left", id:"navbar_submit_form_button", html: {method: :post} do |f| %>
                 <div class="form-group">
-                  <%= text_field_tag :q, params[:q], class:"form-control" %>
+                  <%= text_field_tag :q, params[:q], class:"form-control"%>
                 </div>
-              <%= submit_tag 'Search!' , name: nil,  class:"btn btn-small"  %>
+                <%= submit_tag 'Search!' , name: nil,  class:"btn btn-small"  %>
               <% end %>
             </li>
-            <% end %>
+          <% end %>
+
         <% unless current_user %>
         <li class="nav-signup"><%= link_to('Sign up', new_user_registration_path)  %></li>
         <% end %>
