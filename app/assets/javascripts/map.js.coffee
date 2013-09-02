@@ -5,7 +5,7 @@ $ ->
 # MULTIPLE MAPS ON USER PAGE
 
 # sets multiple maps on user page
-  if $('#user_trips').length > 0
+  if ($("#user_trips").length > 0)
     mapOptions =
       zoom: 1
       center: new google.maps.LatLng(0, 0)
@@ -45,9 +45,9 @@ $ ->
 # UNIQUE MAP ON TRIP INTERFACE AND INDIVIDUAL MAP
 
 # sets map options for trip interface
-  if $("#googleMap").length > 0
+  if ($("#googleMap").length > 0)
     mapOptions =
-      zoom: 1
+      zoom: 2
       center: new google.maps.LatLng(0, 0)
       mapTypeId: google.maps.MapTypeId.ROADMAP
       # scrollwheel: false
@@ -77,18 +77,17 @@ $ ->
         bounds.extend(myLatLng)
         myLatLng
 
+    if markers
+     # sets boundaries of the maps
+      bounds = new google.maps.LatLngBounds
+      map.fitBounds(bounds)
 
-
-   # sets boundaries of the maps
-    bounds = new google.maps.LatLngBounds
-    map.fitBounds(bounds)
-
-  # draws line to each marker
-    trip_stops = draw_markers()
-    trip_path = new google.maps.Polyline
-      path: trip_stops
-      strokeColor: "#7a2949"
-      strokeWeight: 2
+    # draws line to each marker
+      trip_stops = draw_markers()
+      trip_path = new google.maps.Polyline
+        path: trip_stops
+        strokeColor: "#7a2949"
+        strokeWeight: 2
 
     trip_path.setMap map
 
