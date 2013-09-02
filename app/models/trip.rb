@@ -12,7 +12,9 @@ class Trip < ActiveRecord::Base
 
   class << self
     def search_results query
-      self.where(search_query, search: "%#{query}%")
+      where(id: select('trips.id').joins(:markers).where(
+        [search_query, Marker.search_query].join(' or '),
+        search: "%#{query}%"))
     end
 
     def search_query
