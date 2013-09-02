@@ -52,9 +52,7 @@ $ ->
 
     canvas = document.getElementById("googleMap")
     map = new google.maps.Map(canvas, mapOptions)
-    contentString = "<h2 id='infowindow'>marker name</h2>"
     infowindow = new google.maps.InfoWindow
-      # content: "loading..."
       maxWidth: 200
 
   # draws markers on map through a loop
@@ -62,16 +60,16 @@ $ ->
       for marker in window.markers
         image = "/assets/markermap_icon.png"
         myLatLng = new google.maps.LatLng(marker.latitude, marker.longitude)
-
+        marker_name = "<h2 id='infowindow'>#{marker.name}</h2>"
         marker = new google.maps.Marker
           position: myLatLng
           map: map
           icon: image
           animation: google.maps.Animation.DROP
-          title: "marker name here"
+          title: marker_name
 
         google.maps.event.addListener marker, "click", ->
-          infowindow.setContent contentString
+          infowindow.setContent this.title
           infowindow.open map, this
 
         bounds.extend(myLatLng)
