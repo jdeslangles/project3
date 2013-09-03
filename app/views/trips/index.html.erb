@@ -14,11 +14,11 @@
 
 <% @trips.each do |trip| %>
   <tr>
-    <td><%=image_tag trip.cover_photo.mini.url %></td>
-    <td><%= trip.name %></td>
+    <td><%=link_to( image_tag(trip.cover_photo.mini.url), trip )%></td>
+    <td><%= link_to trip.name, trip %></td>
     <td><%= trip.description %></td>
-    <td><%= trip.user.username %></td>
-    <td><%= link_to 'Show', trip %></td>
+    <td><%= link_to trip.user.username, trip.user %></td>
+
         <% if can? :update, trip.user %>
           <td><%= link_to 'Edit', edit_trip_path(trip) %></td>
           <td><%= link_to 'Destroy', trip, method: :delete, data: { confirm: 'Are you sure?' } %></td>
