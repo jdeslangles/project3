@@ -22,12 +22,16 @@
     <td><%= marker.latitude %></td>
     <td><%= marker.longitude %></td>
     <td><%= link_to 'Show', marker %></td>
-    <td><%= link_to 'Edit', edit_marker_path(marker) %></td>
-    <td><%= link_to 'Destroy', marker, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if can? :update, marker.trip.user %>
+            <td><%= link_to 'Edit', edit_marker_path(marker) %>    </td>
+            <td><%= link_to 'Destroy', marker, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%end%>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Marker', new_marker_path %>
+<% if can? :create, @marker %>
+    <%= link_to 'New Marker', new_marker_path %>
+<%end%>
