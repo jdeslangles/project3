@@ -159,7 +159,23 @@ div#infowindow_link{
   box-shadow: -1px 0px 10px 3px black;
   font-weight: normal;
   font-style: none;
+}
 
+#add_marker{
+  padding-left: 10px;
+  padding-right: 0;
+  background-color: black;
+  color: grey;
+  z-index: 2;
+  position: absolute;
+  right: 0;
+  min-width: 230px;
+  width: 25%;
+  height: 50%;
+  box-shadow: -1px 0px 10px 3px black;
+  font-weight: normal;
+  font-style: none;
+  margin-top: 30em;
 }
 
 #trip_details{
