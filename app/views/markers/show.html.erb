@@ -6,14 +6,15 @@
 
 <div id="trip_details">
 
+<h2>
+  <%= @marker.name %>
+</h2>
+
 <p>
   <%=image_tag @marker.photo.thumb %>
 </p>
 
-<p>
-  <b>Name:</b>
-  <%= @marker.name %>
-</p>
+
 
 <p>
   <b>Description:</b>
@@ -21,7 +22,7 @@
 </p>
 
 <p>
-  <b>Address:</b>
+  <b>Location:</b>
   <%= @marker.address %>
 </p>
 
@@ -39,6 +40,12 @@
   <b>Trip:</b>
   <%= link_to @marker.trip.name, trip_path(@marker.trip_id) %>
 </p>
+
+<p>
+  <b>Traveler:</b>
+  <%= link_to @marker.trip.user.username, user_path(@marker.trip.user_id) %>
+</p>
+
 </div>
 
 <div>

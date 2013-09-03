@@ -5,9 +5,9 @@
 <% end %>
 <div id="trip_show">
   <div id="trip_details">
-    <p>
+    <h2>
       <%= @trip.name %>
-    </p>
+    </h2>
 
     <p>
       <%=image_tag @trip.cover_photo.thumb %>
@@ -19,7 +19,7 @@
     </p>
 
     <p>
-      <b>Adventurer:</b>
+      <b>Traveler:</b>
       <%=link_to @trip.user.firstname, user_path(@trip.user_id)%>
     </p>
 
@@ -37,7 +37,7 @@
       <li><button type=button class="btn btn-default btn-xs" id="add_another_marker_link" >Add Another Marker</button></li>
       <li><%= link_to 'Edit', edit_trip_path(@trip) %></li>
       <%end%>
-      <li><%= link_to 'Back', trips_path %></li>
+      <li><%= link_to 'All Trips', trips_path %></li>
     </ul>
 
   </div>
