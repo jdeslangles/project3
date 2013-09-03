@@ -12,7 +12,6 @@ class Ability
       can :read, :all
       can :manage, Trip
       can :manage, Marker
-      can :manage, Photo
     else
       can :read, :all
       can :create, User
