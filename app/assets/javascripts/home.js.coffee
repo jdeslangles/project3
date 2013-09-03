@@ -48,6 +48,6 @@ $ ->
     search()
 
 #  CAROUSEL FUNCTIONALITY
-  # $('.carousel').carousel({
-  #   interval: 4000
-  # });
+  $('.carousel').carousel
+    interval: 4000
+

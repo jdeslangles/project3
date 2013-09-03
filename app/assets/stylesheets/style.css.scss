@@ -159,7 +159,6 @@ div#infowindow_link{
   box-shadow: -1px 0px 10px 3px black;
   font-weight: normal;
   font-style: none;
-
 }
 
 #trip_details{
@@ -167,13 +166,33 @@ div#infowindow_link{
   padding-right: 0;
   background-color: black;
   color: grey;
-  z-index: 1;
+  // z-index: 1;
   position: absolute;
   right: 0;
   min-width: 230px;
   width: 25%;
   height: 100%;
   box-shadow: -1px 0px 10px 3px black;
+}
+#trip_show_links{
+  list-style: none;
+  display: inline-block;
+}
+
+#trip_show{
+  padding-left: 10px;
+  padding-right: 0;
+  background-color: black;
+  color: grey;
+  z-index: 2;
+  position: absolute;
+  right: 0;
+  min-width: 230px;
+  width: 25%;
+  height: 100%;
+  box-shadow: -1px 0px 10px 3px black;
+  font-weight: normal;
+  font-style: none;
 }
 
 .map_user_profile {
