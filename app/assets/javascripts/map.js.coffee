@@ -6,7 +6,6 @@ $ ->
 
 # sets multiple maps on user page
   if ($("#user_trips").length > 0)
-
     mapOptions =
       zoom: 1
       center: new google.maps.LatLng(0, 0)
