@@ -25,7 +25,7 @@
         <%end%>
     </td>
     <td>
-      <% if can? :destroy, @trip %>
+      <% if can? :manage, @trip and current_user.role == 'registered' || 'admin' %>
         <%= link_to 'Destroy', trip, method: :delete, data: { confirm: 'Are you sure?' } %>
       <%end%>
     </td>
