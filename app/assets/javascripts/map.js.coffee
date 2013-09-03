@@ -94,7 +94,6 @@ $ ->
         myLatLng
 
     if markers?
-
      # sets boundaries of the maps
       bounds = new google.maps.LatLngBounds
       map.fitBounds(bounds)

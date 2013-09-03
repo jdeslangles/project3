@@ -48,7 +48,8 @@ class MarkersController < ApplicationController
   def create
     @trip = current_user.trips.find(params[:trip_id])
     if @trip
-      marker = @trip.markers.create params[:marker]
+      marker = @trip.markers.new params[:marker]
+      marker.decode_base64 params[:fileData]
       if marker.save
         render json: marker
       else

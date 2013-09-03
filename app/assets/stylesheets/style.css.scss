@@ -127,7 +127,19 @@ margin: 0 auto;
 
  h2#infowindow{
   color: black;
+  margin-top: 0;
+  margin-bottom: 0.15em;
+  font-size: 1.75em;
  }
+
+ p#infowindow_description{
+    color: black;
+    margin-bottom: 0.1em;
+ }
+
+div#infowindow_link{
+  text-align: right;
+}
 
 /* INTERFACE styling */
 

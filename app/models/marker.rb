@@ -1,16 +1,16 @@
+require "base64"
 class Marker < ActiveRecord::Base
   belongs_to :trip
-  has_many :photos, dependent: :destroy
 
-  accepts_nested_attributes_for :photos
+  attr_accessible :address, :description, :latitude, :longitude, :name, :trip, :photo
 
-  attr_accessible :address, :description, :latitude, :longitude, :name, :trip
+  mount_uploader :photo, MarkerPhotoUploader
+
+  validate :photo_size_validation
 
   geocoded_by :address
 
   after_validation :geocode, :if => :address_changed?
-
-  accepts_nested_attributes_for :photos
 
   class << self
     def search_results query
@@ -22,4 +22,16 @@ class Marker < ActiveRecord::Base
     end
   end
 
+  def decode_base64 data
+    data = Base64.decode64 data.gsub(/^data:.+,/, '')
+    file = Tempfile.new ["thumbnail", ".png"]
+    file.binmode
+    file.write data
+    self.photo = file
+  end
+
+  private
+  def photo_size_validation
+    errors[:photo] << "should be less than 1MB" if photo.size > (1.2).megabyte
+  end
 end
