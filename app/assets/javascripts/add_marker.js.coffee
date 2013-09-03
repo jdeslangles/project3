@@ -1,4 +1,14 @@
 $ ->
+  fileString = null
+  fileAsString: ->
+    fileReader.readAsDataURL( fileObject )
+
+  $('#marker_photo').change (event)->
+    filebase = event.target.files[0]
+    reader = new FileReader();
+    reader.onload = (e) ->
+      fileString = e.target.result
+    reader.readAsDataURL(filebase)
 
   $("#add_another_marker_link").click ->
     $("#add_marker_info").show()
@@ -11,8 +21,6 @@ $ ->
     markerAddress = $("#marker_address").val()
     markerTripId = $("#trip_id").val()
 
-    #setting link to trip show
-    # $("#leave_trip_edition").attr "href", "/trips/#{markerTripId}"
     $.ajax
       type: "POST"
       url: "/markers.json"
@@ -21,7 +29,7 @@ $ ->
           name: markerName
           description: markerDescription
           address: markerAddress
-        # fileData: fileString
+        fileData: fileString
         trip_id: markerTripId
       success:->
         location.reload()
