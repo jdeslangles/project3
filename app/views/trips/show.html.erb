@@ -3,47 +3,55 @@
 <% content_for :map do %>
   <div id="googleMap"></div>
 <% end %>
+<div id="trip_show">
+  <div id="trip_details">
+    <p>
+      <%= @trip.name %>
+    </p>
 
-<div id="trip_details">
-  <p>
-    <%= @trip.name %>
-  </p>
+    <p>
+      <%=image_tag @trip.cover_photo.thumb %>
+    </p>
 
-  <p>
-    <%=image_tag @trip.cover_photo.thumb %>
-  </p>
+    <p>
+      <b>Description:</b>
+      <%= @trip.description %>
+    </p>
 
-  <p>
-    <b>Description:</b>
-    <%= @trip.description %>
-  </p>
+    <p>
+      <b>Adventurer:</b>
+      <%=link_to @trip.user.firstname, user_path(@trip.user_id)%>
+    </p>
 
-  <p>
-    <b>Adventurer:</b>
-    <%=link_to @trip.user.firstname, user_path(@trip.user_id)%>
-  </p>
+    <p>
+      <b>Locations visited:</b>
+      <ul> <% @trip.markers.each do |marker| %>
+        <li><%= link_to marker.name, marker_path(marker.id) if marker.id %></li>
+                <%end%>
+      </ul>
+    </p>
 
-  <p>
-    <b>Locations visited:</b>
-    <ul> <% @trip.markers.each do |marker| %>
-      <li><%= link_to marker.name, marker_path(marker.id) %></li>
-              <%end%>
-  </p>
+    <ul id="trip_show_links">
+      <li><a href="https://twitter.com/share" class="twitter-share-button" data-lang="en" data-url="http://footsteps.com" data-text="Check out this trip itinerary!" data-count="none" data-hashtags="FootSteps">Tweet</a></li>
+      <% if can? :manage, @trip.user %>
+      <li><button type=button class="btn btn-default btn-xs" id="add_another_marker_link" >Add Another Marker</button></li>
+      <li><%= link_to 'Edit', edit_trip_path(@trip) %></li>
+      <%end%>
+      <li><%= link_to 'Back', trips_path %></li>
+    </ul>
 
+  </div>
 
-  <a href="https://twitter.com/share" class="twitter-share-button" data-lang="en" data-url="http://footsteps.com" data-text="Check out this trip itinerary!" data-count="none" data-hashtags="FootSteps">Tweet</a>
+  <div id="add_marker">
+    <%= render "partials/add_marker", marker: @marker %>
+  </div>
+
+</div>
+<script>
+  window.markers = <%= raw @trip.markers.to_json%>
+</script>
 
   <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 
 
 
-  <% if can? :manage, @trip.user %>
-    <%= link_to 'Add a marker', new_marker_path%>
-    <%= link_to 'Edit', edit_trip_path(@trip) %>
-  <%end%>
-  <%= link_to 'Back', trips_path %>
- </div>
-
-<script>
-  window.markers = <%= raw @trip.markers.to_json%>
-</script>

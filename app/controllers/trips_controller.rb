@@ -20,6 +20,7 @@ class TripsController < ApplicationController
   def show
     @trip = Trip.find(params[:id])
     @markers = @trip.markers
+    @marker = Marker.new trip: @trip
     respond_to do |format|
       format.html # show.html.erb
       format.json {
@@ -52,6 +53,7 @@ class TripsController < ApplicationController
   # GET /trips/1/edit
   def edit
     @trip = Trip.find(params[:id])
+    markers = @trip.markers.where(trip_id: @trip.id)
   end
 
   # POST /trips

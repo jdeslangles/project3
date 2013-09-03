@@ -1,9 +1,9 @@
-<div id="marker_info" style="display: none">
+<div id="add_marker_info" style="display: none">
   <p>
       Add a marker on your itinerary:
   </p>
-  <%= form_for marker, url: trip_interface_path, html: {id: "create_marker_form"}, method: :post do |f| %>
-    <%= hidden_field_tag id="trip_id", "" %>
+  <%= form_for marker, url: trip_path, html: {id: "add_marker_form"}, method: :post do |f| %>
+    <%= hidden_field_tag id="trip_id", @trip.id %>
     <% if marker.errors.any? %>
       <div id="error_explanation">
         <h2><%= pluralize(marker.errors.count, "error") %> prohibited this marker from being saved:</h2>
@@ -41,10 +41,10 @@
 
     <div class="actions">
       <br>
-      <%= f.submit "Create Marker", class:"btn btn-sm btn-primary" %>
+      <%= f.submit "Add Marker", class:"btn btn-sm btn-primary" %>
     </div>
   <% end %>
 
-  <p>Is your trip complete?</p>
-  <%= link_to "Yep, I'm done!", "", class:"btn btn-sm btn-primary", id: "leave_trip_edition"%>
+<!--   <p>Is your trip complete?</p>
+  < %= link_to "Yep, I'm done!", "", class:"btn btn-sm btn-primary", id: "leave_trip_edition"%> -->
 </div>

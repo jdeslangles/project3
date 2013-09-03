@@ -35,7 +35,9 @@ $ ->
         $("#create_trip_form").hide()
         $("#trip_info .name").text data.name
         $("#trip_info .description").text data.description
-        $("#trip_info .image img").attr "src", data.cover_photo.thumb.url
+        if data.cover_photo.thumb.url?
+          $("#trip_info .image").html("<img src='#{data.cover_photo.thumb.url}'>")
+        $("#trip_info .image img").attr "src",
         $("#trip_id").val(data.id)
         $("#trip_info").show()
         $("#marker_info").show()
@@ -68,6 +70,7 @@ $ ->
         address: markerAddress
     dataOptions.fileData = fileString if fileString != null
     dataOptions.trip_id = markerTripId
+
     #setting link to trip show
     $("#leave_trip_edition").attr "href", "/trips/#{markerTripId}"
     $.ajax
