@@ -1,15 +1,15 @@
-<h1>Listing users</h1>
+<h1>Users</h1>
 
 <table class="table">
   <tr>
     <th></th>
     <th>Username</th>
-    <th>Email</th>
+
     <th>Location</th>
-<!--     <th>Firstname</th>
+    <th>Firstname</th>
     <th>Lastname</th>
-    <th>Bio</th> -->
-    <th>Birthdate</th>
+    <th>Bio</th>
+
     <th></th>
     <th></th>
     <th></th>
@@ -22,14 +22,13 @@
             <%=image_tag user.avatar.mini, class: "img-rounded" %>
         <% end %>
     </td>
-    <td><%= user.username.humanize %></td>
-    <td><%= user.email %></td>
+    <td><%= link_to user.username.humanize, user %></td>
+
     <td><%= user.location %></td>
-<!--     <td>< %= user.firstname %></td>
-    <td>< %= user.lastname %></td>
-    <td>< %= user.bio %></td> -->
-    <td><%= user.birthdate %></td>
-    <td><%= link_to 'View', user %></td>
+    <td><%= user.firstname %></td>
+    <td><%= user.lastname %></td>
+    <td><%= user.bio %></td>
+
     <td>
         <% if current_user == user %>
             <%= link_to 'Edit', edit_user_path(user) %>
