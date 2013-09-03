@@ -13,7 +13,6 @@ $ ->
       mapTypeId: google.maps.MapTypeId.ROADMAP
       scrollwheel: false
 
-
     user_id = $("body").attr("data-user-id")
 
     $.getJSON "/users/" + user_id + "/trips.json", (data) ->
@@ -21,8 +20,8 @@ $ ->
         mapElement = $('<div class="map_user_profile" id="map_' + trip.id + '">')
         $('#trip_' + trip.id).append(mapElement)
         nativeMapElement = document.getElementById("map_" +trip.id)
-        window.map = map = new google.maps.Map(nativeMapElement, mapOptions)
-
+        map = new google.maps.Map(nativeMapElement, mapOptions)
+        bounds = new google.maps.LatLngBounds()
         latlngs = []
         image = "/assets/markermap_mini_icon.png"
         for marker in trip.markers
@@ -76,13 +75,13 @@ $ ->
       for marker in markers_array
         image = "/assets/markermap_icon.png"
         myLatLng = new google.maps.LatLng(marker.latitude, marker.longitude)
-        marker_name = "<h2 id='infowindow'>#{marker.name}</h2>"
+        marker_details = "<h2 id='infowindow'>#{marker.name}</h2><p id='infowindow_description'>#{marker.description.split(' ').slice(0,15).join(' ')}... <div id='infowindow_link'><a href='/markers/#{(marker.id)}'>read full post >> </a></div></p>"
         marker = new google.maps.Marker
           position: myLatLng
           map: map
           icon: image
           animation: google.maps.Animation.DROP
-          title: marker_name
+          title: marker_details
 
         paths = window.map.polyline.getPath()
         paths.push marker.position
