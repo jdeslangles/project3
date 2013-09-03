@@ -61,7 +61,7 @@ $ ->
           name: markerName
           description: markerDescription
           address: markerAddress
-          fileData: fileString
+        fileData: fileString
         trip_id: markerTripId
       success: ->
         $("#marker_name").val('')
