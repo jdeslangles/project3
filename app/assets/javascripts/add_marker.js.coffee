@@ -24,4 +24,4 @@ $ ->
         # fileData: fileString
         trip_id: markerTripId
       success:->
-        window.location.href =  trip_path(@trip.id)
+        location.reload()
