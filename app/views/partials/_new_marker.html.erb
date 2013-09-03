@@ -31,6 +31,9 @@
       <%= f.text_field :address, class:"input_field" %>
     </div>
 
+    <%= hidden_field_tag "longitude" %>
+    <%= hidden_field_tag "latitude" %>
+
     <div class="actions">
       <br>
       <%= f.submit "Create marker", class:"btn btn-sm btn-primary" %>

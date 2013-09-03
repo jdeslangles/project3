@@ -21,9 +21,6 @@ $ ->
         description: tripDescription
         fileData: fileString
       success: (data)->
-        # add a new marker to the map
-        # then recalculate the bounds of the map
-        #then , if the marker is not the first one , draw a line between the differnerts martkers
         $("#create_trip_form").hide()
         $("#trip_info .name").text data.name
         $("#trip_info .description").text data.description
@@ -56,9 +53,25 @@ $ ->
           address: markerAddress
         trip_id: markerTripId
       success: ->
+        # add a new marker to the map
+        if ($("#googleMap").length > 0)
+          mapOptions =
+            zoom: 2
+            center: new google.maps.LatLng($("#latitude").val(), $("#longitude").val())
+            scrollwheel: false
+          infowindow = new google.maps.InfoWindow
+              maxWidth: 200
+          console.log(mapOptions)
+        # then recalculate the bounds of the map
+
+        #then , if the marker is not the first one , draw a line between the differnerts martkers
+
+
         $("#marker_name").val('')
         $("#marker_description").val('')
         $("#marker_address").val('')
+        $("#longitude").val('')
+        $("#latitude").val('')
       error: (xhr)->
         errors = $.parseJSON(xhr.responseText).errors
         if errors?
