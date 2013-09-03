@@ -102,7 +102,7 @@ $ ->
       zoom: 8
       center: new google.maps.LatLng(latitude, longitude)
       mapTypeId: google.maps.MapTypeId.ROADMAP
-      # scrollwheel: false
+      scrollwheel: false
 
     canvas = document.getElementById("googleMap_marker")
     map = new google.maps.Map(canvas, mapOptions)
