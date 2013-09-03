@@ -20,14 +20,10 @@
     <td><%= trip.user.username %></td>
     <td><%= link_to 'Show', trip %></td>
     <td>
-        <% if can? :update, @trip %>
+        <% if can? :update, trip.user %>
           <%= link_to 'Edit', edit_trip_path(trip) %>
+          <%= link_to 'Destroy', trip, method: :delete, data: { confirm: 'Are you sure?' } %>
         <%end%>
-    </td>
-    <td>
-      <% if can? :manage, @trip and current_user.role == 'registered' || 'admin' %>
-        <%= link_to 'Destroy', trip, method: :delete, data: { confirm: 'Are you sure?' } %>
-      <%end%>
     </td>
   </tr>
 <% end %>
