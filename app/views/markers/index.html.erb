@@ -1,27 +1,24 @@
-<h1>Listing markers</h1>
+<h1>Stops</h1>
 
 <table>
   <tr>
     <th></th>
-    <th>Name</th>
+    <th>Stop Name</th>
     <th>Description</th>
-    <th>Address</th>
-    <th>Latitude</th>
-    <th>Longitude</th>
-    <th></th>
+    <th>Location</th>
+    <th>Full Trip</th>
     <th></th>
     <th></th>
   </tr>
 
 <% @markers.each do |marker| %>
   <tr>
-    <td><%=image_tag marker.photo.mini.url %></td>
-    <td><%= marker.name %></td>
+    <td><%=link_to( image_tag(marker.photo.mini.url), marker ) %></td>
+    <td><%= link_to marker.name, marker %></td>
     <td><%= marker.description %></td>
     <td><%= marker.address %></td>
-    <td><%= marker.latitude %></td>
-    <td><%= marker.longitude %></td>
-    <td><%= link_to 'Show', marker %></td>
+    <td><%= link_to marker.trip.name, marker.trip %></td>
+
         <% if can? :update, marker.trip.user %>
             <td><%= link_to 'Edit', edit_marker_path(marker) %>    </td>
             <td><%= link_to 'Destroy', marker, method: :delete, data: { confirm: 'Are you sure?' } %></td>
