@@ -38,7 +38,6 @@
 
 
   <% if can? :manage, @trip.user %>
-    <%= link_to 'Add a marker', new_marker_path%>
     <%= link_to 'Edit', edit_trip_path(@trip) %>
   <%end%>
   <%= link_to 'Back', trips_path %>
