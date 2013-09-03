@@ -31,15 +31,10 @@
       <%= f.text_field :address, class:"input_field" %>
     </div>
 
-<!--     <div class="field" >
-      < %= f.label :latitude%><br />
-      < %= f.text_field :latitude, class:"input_field" %>
+    <div class="field">
+      <%= f.label :photo%><br />
+      <%= f.file_field :photo, :onchange =>"validateFiles(this);", :data => { :max_file_size => 1.megabyte } %>
     </div>
-
-    <div class="field" >
-      < %= f.label :longitude %><br />
-      < %= f.text_field :longitude, class:"input_field" %>
-    </div> -->
 
     <div class="actions">
       <br>
@@ -47,8 +42,6 @@
     </div>
   <% end %>
 
-  <p>
-    Add another stop?
-  </p>
-  <%=link_to "Yes"%><%=link_to "No, my trip is complete!"%>
+  <p>Is your trip complete?</p>
+  <%= link_to "Yep, I'm done!", "", class:"btn btn-sm btn-primary", id: "leave_trip_edition"%>
 </div>

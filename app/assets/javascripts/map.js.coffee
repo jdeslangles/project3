@@ -92,6 +92,7 @@ $ ->
 
       trip_path.setMap map
 
+
   if ($("#googleMap_marker").length > 0)
     latitude = $("#latitude").text()
     longitude = $("#longitude").text()
@@ -99,7 +100,7 @@ $ ->
       zoom: 8
       center: new google.maps.LatLng(latitude, longitude)
       mapTypeId: google.maps.MapTypeId.ROADMAP
-      # scrollwheel: false
+      scrollwheel: false
 
     canvas = document.getElementById("googleMap_marker")
     map = new google.maps.Map(canvas, mapOptions)

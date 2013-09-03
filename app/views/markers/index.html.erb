@@ -2,6 +2,7 @@
 
 <table>
   <tr>
+    <th></th>
     <th>Name</th>
     <th>Description</th>
     <th>Address</th>
@@ -14,6 +15,7 @@
 
 <% @markers.each do |marker| %>
   <tr>
+    <td><%=image_tag marker.photo.mini.url %></td>
     <td><%= marker.name %></td>
     <td><%= marker.description %></td>
     <td><%= marker.address %></td>
