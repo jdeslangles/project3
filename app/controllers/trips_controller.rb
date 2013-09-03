@@ -58,7 +58,7 @@ class TripsController < ApplicationController
   # POST /trips.json
   def create
     @trip = Trip.new(name: params[:name], description: params[:description])
-    @trip.decode_base64 params[:fileData]
+    @trip.decode_base64 params[:fileData] if params[:fileData]
     @trip.user  =  current_user
     if @trip.save
         render json: @trip

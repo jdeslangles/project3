@@ -1,4 +1,10 @@
 $ ->
+
+  input = document.getElementById 'marker_address'
+  options =
+  autocomplete = new google.maps.places.Autocomplete input, options
+
+
   fileString = null
   fileAsString: ->
     fileReader.readAsDataURL( fileObject )
@@ -14,13 +20,17 @@ $ ->
     event.preventDefault()
     tripName = $("#name").val()
     tripDescription = $("#trip_description").val()
+
+    dataOptions =
+      name: tripName
+      description: tripDescription
+
+    dataOptions.fileData = fileString if fileString != null
+
     $.ajax
       type: "POST"
       url: "/trips.json"
-      data:
-        name: tripName
-        description: tripDescription
-        fileData: fileString
+      data: dataOptions
       success: (data)->
         $("#create_trip_form").hide()
         $("#trip_info .name").text data.name
@@ -51,18 +61,19 @@ $ ->
     markerAddress = $("#marker_address").val()
     markerTripId = $("#trip_id").val()
 
+    dataOptions =
+      marker:
+        name: markerName
+        description: markerDescription
+        address: markerAddress
+    dataOptions.fileData = fileString if fileString != null
+    dataOptions.trip_id = markerTripId
     #setting link to trip show
     $("#leave_trip_edition").attr "href", "/trips/#{markerTripId}"
     $.ajax
       type: "POST"
       url: "/markers.json"
-      data:
-        marker:
-          name: markerName
-          description: markerDescription
-          address: markerAddress
-        fileData: fileString
-        trip_id: markerTripId
+      data: dataOptions
       success: (data)->
         # add a new marker to the map
         markers_array = window.markers || []
