@@ -31,6 +31,9 @@
       <%= f.text_field :address, class:"input_field" %>
     </div>
 
+    <%= hidden_field_tag "longitude" %>
+    <%= hidden_field_tag "latitude" %>
+
     <div class="field">
       <%= f.label :photo%><br />
       <%= f.file_field :photo, :onchange =>"validateFiles(this);", :data => { :max_file_size => 1.megabyte } %>

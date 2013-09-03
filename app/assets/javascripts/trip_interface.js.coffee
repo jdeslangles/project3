@@ -63,11 +63,47 @@ $ ->
           address: markerAddress
         fileData: fileString
         trip_id: markerTripId
-      success: ->
+      success: (data)->
+        # add a new marker to the map
+        markers_array = window.markers || []
+
+
+        if (window.map != undefined)
+          #TODO: loop over the markers and add to bounds
+
+          newLatLng = new google.maps.LatLng(data.latitude, data.longitude)
+          infowindow = new google.maps.InfoWindow
+              maxWidth: 200
+          marker = new google.maps.Marker
+            position: newLatLng
+            map: window.map
+            icon: "/assets/markermap_icon.png"
+            animation: google.maps.Animation.DROP
+
+        # then recalculate the bounds of the map
+          # window.map.fitBounds(bounds)
+          window.map.bounds.extend marker.position
+          window.map.fitBounds map.bounds
+
+          paths = window.map.polyline.getPath()
+          paths.push marker.position
+
+        #then , if the marker is not the first one , draw a line between the differnerts martkers
+          trip_path = new google.maps.Polyline
+            path: markers_array
+            strokeColor: "#7a2949"
+            strokeWeight: 2
+
+
+
+
         $("#marker_name").val('')
         $("#marker_description").val('')
         $("#marker_address").val('')
+        $("#longitude").val('')
+        $("#latitude").val('')
         $("#marker_photo").val('')
+
       error: (xhr)->
         errors = $.parseJSON(xhr.responseText).errors
         if errors?
