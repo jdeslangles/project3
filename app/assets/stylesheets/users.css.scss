@@ -1,3 +1,32 @@
-// Place all the styles related to the users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+/* VARIABLES */
+$maroon: #7a2949;
+$orange: #b13c11;
+$blue: #335d69;
+$green: #67a193;
+$grey: #82756f;
+
+
+/* User Profile styling */
+#user_profile_top{
+  background: $blue;
+  height: 30em;
+  width: 30%;
+}
+
+#user_profile_pic img{
+  display: block;
+  margin: auto;
+}
+
+#user_profile_top p{
+  margin-left: 1.35em;
+}
+
+#user_profile_top h2{
+  text-align: center;
+  font-size: 2.5em;
+}
+
+#user_info{
+  margin-bottom: 0;
+}

@@ -3,51 +3,50 @@
 <p id="notice"><%= notice %></p>
 
 
-<p>
-  <%=image_tag @user.avatar.thumb.url, class:"img-rounded" %>
-</p>
-<p>
-  <b>Username:</b>
-  <%= @user.username %>
-</p>
+<div id="user_profile_top">
+  <div id="user_profile_pic"><%=image_tag @user.avatar.thumb.url, class:"img-rounded" %></div>
+  <h2>
+    <%= @user.username %>
+  </h2>
 
-<p>
-  <b>Firstname:</b>
-  <%= @user.firstname %>
-</p>
+  <p>
+    <b>Name</b>
+    <%= @user.firstname.humanize %>
+    <%= @user.lastname.humanize %>
+  </p>
 
-<p>
-  <b>Lastname:</b>
-  <%= @user.lastname %>
-</p>
+  <p>
+    <b>About</b>
+    <%= @user.bio %>
+  </p>
 
-<p>
-  <b>Email:</b>
-  <%= @user.email %>
-</p>
+  <p id="user_info">
+    <b>Info</b>
+    <ul>
+      <li>Location: <%= @user.location %></li>
+      <li>Trips Taken: <%= @user.trips.count%></li>
+      <li>Email: <%= @user.email %></li>
+      <li>Birthday: <%= @user.birthdate.strftime('%d %B %Y')  %></li>
+    </ul>
+  </p>
 
-<p>
-  <b>Bio:</b>
-  <%= @user.bio %>
-</p>
+</div>
 
-<p>
-  <b>Birthdate:</b>
-  <%= @user.birthdate %>
-</p>
-
-<p>
-  <b>Trips:</b>
-  <ul id="user_trips">
-    <% @user.trips.each do |trip| %>
-      <li id="trip_<%= trip.id %>">
-        <%= link_to trip.name, trip_path(trip.id) %>
-      </li>
-    <% end %>
-  </ul>
-</p>
-
-<% if can? :update, @user %>
-  <%= link_to 'Edit', edit_user_registration_path %>
-<% end %>
-<%= link_to 'All Travelers', users_path %>
+<div id="user_trips">
+  <p>
+    <b>Trips:</b>
+    <ul id="user_trips">
+      <% @user.trips.each do |trip| %>
+        <li id="trip_<%= trip.id %>">
+          <%= link_to trip.name, trip_path(trip.id) %>
+        </li>
+      <% end %>
+    </ul>
+  </p>
+</div>
+<div>
+  <% if can? :update, @user %>
+    <%= link_to 'Edit', edit_user_registration_path %>
+  <% end %>
+  <%= link_to 'All Travelers', users_path %>
+</div>
