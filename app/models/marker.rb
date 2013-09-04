@@ -8,6 +8,10 @@ class Marker < ActiveRecord::Base
 
   validate :photo_size_validation
 
+  validates :address, presence: true
+  validates :description, presence: true
+  validates :name, presence: true
+
   geocoded_by :address
 
   after_validation :geocode, :if => :address_changed?
