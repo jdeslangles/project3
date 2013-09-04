@@ -8,11 +8,11 @@
     <h2>
       <%= @trip.name %>
     </h2>
-
+    <%  unless @trip.cover_photo.thumb.nil? || @trip.cover_photo.thumb.blank? %>
     <p>
       <%=image_tag @trip.cover_photo.thumb %>
     </p>
-
+    <% end %>
     <p>
       <b>Description:</b>
       <%= @trip.description %>
