@@ -5,9 +5,9 @@
 <% end %>
 
   <div id="trip_details">
-    <p>
+    <h2>
       <%= @trip.name %>
-    </p>
+    </h2>
 
     <p>
       <%=image_tag @trip.cover_photo.thumb %>
@@ -19,7 +19,7 @@
     </p>
 
     <p>
-      <b>Adventurer:</b>
+      <b>Traveler:</b>
       <%=link_to @trip.user.firstname, user_path(@trip.user_id)%>
     </p>
 
@@ -43,12 +43,14 @@
       </p>
     </div>
 
-    <div id="tweet">
-      <br>
-      <br>
+    <div class="tweet">
       <p>Proud of your amazing trip?</p>
       <p>Tweet about it!</p>
       <a href="https://twitter.com/share" class="twitter-share-button" data-lang="en" data-url="http://footsteps.com" data-text="Check out this trip itinerary!" data-count="none" data-hashtags="FootSteps">Tweet</a>
+    </div>
+
+    <div class="links">
+      <%= link_to 'All Trips', trips_path %>
     </div>
 
   </div>
@@ -65,6 +67,5 @@
 </script>
 
   <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-
 
 
