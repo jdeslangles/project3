@@ -11,8 +11,8 @@ $grey: #82756f;
 #user_profile{
   background: $blue;
   border-radius: 1.25em;
-  padding-bottom: 0.75em;
-
+  padding-bottom: 0.25em;
+  margin-bottom: 1em;
 }
 
 #user_profile_pic {
@@ -45,8 +45,6 @@ p#user_info{
 #user_controls{
   text-align: center;
 }
-#user_trips{
-}
 
 #trip_map_small {
   list-style: none;
@@ -55,9 +53,9 @@ p#user_info{
 }
 #trip_map_small {
   float: left;
-  height: 300px;
+  height: 255px;
   width: 200px;
-  margin-right: 1em;
+  margin-right: 1.35em;
 }
 
 #trip_map_small h3{
