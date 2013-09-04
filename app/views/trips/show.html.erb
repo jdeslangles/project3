@@ -3,7 +3,7 @@
 <% content_for :map do %>
   <div id="googleMap"></div>
 <% end %>
-<div id="trip_show">
+
   <div id="trip_details">
     <h2>
       <%= @trip.name %>
@@ -31,14 +31,27 @@
       </ul>
     </p>
 
-    <ul id="trip_show_links">
-      <li><a href="https://twitter.com/share" class="twitter-share-button" data-lang="en" data-url="http://footsteps.com" data-text="Check out this trip itinerary!" data-count="none" data-hashtags="FootSteps">Tweet</a></li>
+    <div id="trip_show_links">
       <% if can? :manage, @trip.user %>
-      <li><button type=button class="btn btn-default btn-xs" id="add_another_marker_link" >Add Another Marker</button></li>
-      <li><%= link_to 'Edit', edit_trip_path(@trip) %></li>
+        <button type=button class="btn btn-sm btn-primary" id="add_another_marker_link" >Add Another Marker</button>
       <%end%>
-      <li><%= link_to 'All Trips', trips_path %></li>
-    </ul>
+      <p>
+        <% if can? :manage, @trip.user %>
+          <%= link_to 'Edit', edit_trip_path(@trip) %>
+        <%end%>
+        <%= link_to 'Back', trips_path %>
+      </p>
+    </div>
+
+    <div class="tweet">
+      <p>Proud of your amazing trip?</p>
+      <p>Tweet about it!</p>
+      <a href="https://twitter.com/share" class="twitter-share-button" data-lang="en" data-url="http://footsteps.com" data-text="Check out this trip itinerary!" data-count="none" data-hashtags="FootSteps">Tweet</a>
+    </div>
+
+    <div class="links">
+      <%= link_to 'All Trips', trips_path %>
+    </div>
 
   </div>
 
@@ -46,7 +59,9 @@
     <%= render "partials/add_marker", marker: @marker %>
   </div>
 
-</div>
+
+
+
 <script>
   window.markers = <%= raw @trip.markers.to_json%>
 </script>

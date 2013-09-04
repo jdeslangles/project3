@@ -39,9 +39,10 @@
       <%= f.file_field :photo, :onchange =>"validateFiles(this);", :data => { :max_file_size => 1.megabyte } %>
     </div>
 
-    <div class="actions">
+    <div class="actions links">
       <br>
       <%= f.submit "Add Marker", class:"btn btn-sm btn-primary" %>
+      <button type=button class="btn btn-sm btn-primary" id="cancel_add_marker_link" >Cancel</button>
     </div>
   <% end %>
 
