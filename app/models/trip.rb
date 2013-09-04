@@ -9,7 +9,7 @@ class Trip < ActiveRecord::Base
 
   validate :cover_photo_size_validation
 
-  validates :name, presence: true, length:{minimum:2}
+  validates :name, presence: true, length:{maximum: 46}
   validates :description, length:{maximum:140}
 
   accepts_nested_attributes_for :markers
