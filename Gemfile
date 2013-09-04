@@ -7,7 +7,6 @@ gem 'rails', '3.2.14'
 
 gem 'pg'
 gem 'geocoder'
-gem 'gmaps4rails'
 gem 'devise'
 gem 'carrierwave'
 gem 'mini_magick'

@@ -1,8 +1,9 @@
 $ ->
 
   input = document.getElementById 'marker_address'
-  options =
-  autocomplete = new google.maps.places.Autocomplete input, options
+  if input?
+    options =
+    autocomplete = new google.maps.places.Autocomplete input, options
 
 
   fileString = null
@@ -35,9 +36,8 @@ $ ->
         $("#create_trip_form").hide()
         $("#trip_info .name").text data.name
         $("#trip_info .description").text data.description
-        if data.cover_photo.thumb.url?
+        if data.cover_photo.thumb.url != "/assets/trip_icon_large.png"
           $("#trip_info .image").html("<img src='#{data.cover_photo.thumb.url}'>")
-        $("#trip_info .image img").attr "src",
         $("#trip_id").val(data.id)
         $("#trip_info").show()
         $("#marker_info").show()
