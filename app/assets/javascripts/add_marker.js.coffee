@@ -12,6 +12,11 @@ $ ->
 
   $("#add_another_marker_link").click ->
     $("#add_marker_info").show()
+    $("#trip_details").hide()
+
+  $("#cancel_add_marker_link").click ->
+    $("#add_marker_info").hide()
+    $("#trip_details").show()
 
   $('#add_marker_form').submit (event)->
     console.log "TADAAA"
@@ -21,15 +26,17 @@ $ ->
     markerAddress = $("#marker_address").val()
     markerTripId = $("#trip_id").val()
 
+    dataOptions =
+      marker:
+        name: markerName
+        description: markerDescription
+        address: markerAddress
+    dataOptions.fileData = fileString if fileString != null
+    dataOptions.trip_id = markerTripId
+
     $.ajax
       type: "POST"
       url: "/markers.json"
-      data:
-        marker:
-          name: markerName
-          description: markerDescription
-          address: markerAddress
-        fileData: fileString
-        trip_id: markerTripId
+      data: dataOptions
       success:->
         location.reload()
