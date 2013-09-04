@@ -7,11 +7,16 @@ $grey: #82756f;
 
 
 /* User Profile styling */
-#user_profile{
-  background: $blue;
-  height: 30em;
+
+#user_profile_left{
   width: 30%;
   float:  left;
+  min-width: 240px;
+}
+
+#user_profile{
+  background: $blue;
+  height: 35em;
 }
 
 #user_profile_pic {
@@ -31,16 +36,24 @@ $grey: #82756f;
 
 #user_info{
   margin-bottom: 0;
-
 }
 
+#user_controls{
+  text-align: center;
+}
 #user_trips{
   width: 70%;
   float:  right;
+  padding-left: 1.25em;
 }
 
+#trip_map_small {
+  list-style: none;
+  padding: 0;
+}
 #trip_map_small li{
   float: left;
-  height: 4em;
-  width: 4em;
+  height: 270px;
+  width: 250px;
+  margin-right: 1em;
 }

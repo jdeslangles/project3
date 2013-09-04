@@ -16,7 +16,7 @@ $ ->
 
     $.getJSON "/users/" + user_id + "/trips.json", (data) ->
       for trip in data
-        mapElement = $('<div class="map_user_profile" id="map_' + trip.id + '">')
+        mapElement = $("<div class='map_user_profile' id='map_" + trip.id + "'>")
         $('#trip_' + trip.id).append(mapElement)
         nativeMapElement = document.getElementById("map_" +trip.id)
         map = new google.maps.Map(nativeMapElement, mapOptions)

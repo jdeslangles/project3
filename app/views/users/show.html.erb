@@ -2,34 +2,37 @@
 
 <p id="notice"><%= notice %></p>
 
-
-<div id="user_profile">
-  <div id="user_profile_pic"><%=image_tag @user.avatar.thumb.url, class:"img-rounded" %></div>
-  <h2>
-    <%= @user.username %>
-  </h2>
-
-  <p>
-    <b>Name</b>
-    <%= @user.firstname.humanize %>
-    <%= @user.lastname.humanize %>
-  </p>
-
-  <p>
-    <b>About</b>
-    <%= @user.bio %>
-  </p>
-
-  <p id="user_info">
-    <b>Info</b>
-    <ul>
-      <li>Location: <%= @user.location %></li>
-      <li>Trips Taken: <%= @user.trips.count%></li>
-      <li>Email: <%= @user.email %></li>
-      <li>Birthday: <%= @user.birthdate.strftime('%d %B %Y')  %></li>
-    </ul>
-  </p>
-
+<div id="user_profile_left">
+  <div id="user_profile">
+    <div id="user_profile_pic"><%=image_tag @user.avatar.thumb.url, class:"img-rounded" %></div>
+    <h2>
+      <%= @user.username %>
+    </h2>
+    <p>
+      <b>Name</b>
+      <%= @user.firstname.humanize %>
+      <%= @user.lastname.humanize %>
+    </p>
+    <p>
+      <b>About</b>
+      <%= @user.bio %>
+    </p>
+    <p id="user_info">
+      <b>Info</b>
+      <ul>
+        <li>Location: <%= @user.location %></li>
+        <li>Birthday: <%= @user.birthdate.strftime('%d %B %Y')  %></li>
+        <li>Trips taken: <%= @user.trips.count%></li>
+        <li>Locations visited: <%= @user.markers.count %></li>
+      </ul>
+    </p>
+  </div>
+  <div id="user_controls">
+    <% if can? :update, @user %>
+      <%= link_to 'Edit Profile ', edit_user_registration_path %>
+    <% end %> |
+    <%= link_to ' All Travelers', users_path %>
+  </div>
 </div>
 
 <div id="user_trips">
@@ -37,14 +40,10 @@
       <% @user.trips.each do |trip| %>
         <li id="trip_<%= trip.id %>">
           <%= link_to trip.name, trip_path(trip.id) %>
+
         </li>
       <% end %>
     </ul>
 
 </div>
-<div>
-  <% if can? :update, @user %>
-    <%= link_to 'Edit', edit_user_registration_path %>
-  <% end %>
-  <%= link_to 'All Travelers', users_path %>
-</div>
+
