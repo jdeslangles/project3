@@ -39,8 +39,7 @@
     <ul id="trip_map_small">
       <% @user.trips.each do |trip| %>
         <li id="trip_<%= trip.id %>">
-          <%= link_to trip.name, trip_path(trip.id) %>
-
+          <h3><%= link_to trip.name, trip_path(trip.id) %></h3>
         </li>
       <% end %>
     </ul>
