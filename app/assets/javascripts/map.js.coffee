@@ -119,7 +119,7 @@ $ ->
       scrollwheel: false
 
     canvas = document.getElementById("googleMap_marker")
-    debugger
+
     if canvas?
       window.map = map = new google.maps.Map(canvas, mapOptions)
       image = "/assets/markermap_icon.png"
