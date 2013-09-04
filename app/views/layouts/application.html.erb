@@ -46,7 +46,8 @@
                 <div class="form-group">
                   <%= text_field_tag :q, params[:q], class:"form-control input-sm"%>
                 </div>
-                <%= submit_tag 'Search!' , name: nil,  class:"btn btn-xs"  %>
+                <%= image_submit_tag("search_icon_white.png", class: "search_icon") %>
+
               <% end %>
             </li>
           <% end %>
