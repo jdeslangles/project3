@@ -13,29 +13,22 @@
 
   <div class="field">
     <%= f.label :name %><br />
-    <%= f.text_field :name %>
+    <%= f.text_field :name, class:"input_field" %>
   </div>
   <div class="field">
     <%= f.label :description %><br />
-    <%= f.text_area :description %>
+    <%= f.text_area :description, :size => "30x5", class:"input_field" %>
   </div>
   <div class="field">
     <%= f.label :address %><br />
-    <%= f.text_field :address %>
+    <%= f.text_field :address, class:"input_field" %>
   </div>
-  <div class="field" >
-    <%= f.label :latitude%><br />
-    <%= f.text_field :latitude %>
-  </div>
-  <div class="field" >
-    <%= f.label :longitude %><br />
-    <%= f.text_field :longitude %>
-  </div>
-  <div class="field">
+  <div class="field links">
     <%= f.label :photo %><br>
-    <%= f.file_field :photo, :onchange =>"validateFiles(this);", :data => { :max_file_size => 1.megabyte }%><br/><br>
+    <%= f.file_field :photo, class: "centered", :onchange =>"validateFiles(this);", :data => { :max_file_size => 1.megabyte }%><br/><br>
 </div>
   <div class="actions">
-    <%= f.submit %>
+    <br>
+    <%= f.submit "Update", class:"btn btn-sm btn-primary"  %>
   </div>
 <% end %>

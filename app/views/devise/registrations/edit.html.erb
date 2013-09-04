@@ -3,67 +3,66 @@
 <div class="row">
   <div class="col-md-9 col-md-offset-2">
     <div class="sign_up_form">
-
-      <h2>Edit your profile <%= resource_name.to_s.humanize %></h2>
-
-      <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
-        <%= devise_error_messages! %>
-
-        <div><%= f.label :email %><br />
-        <%= f.email_field :email, :autofocus => true %></div>
-
-        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-          <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-        <% end %>
-        <div >
-          <%= f.label :firstname %><br>
-          <%= f.text_field :firstname, :autofocus => true %>
+      <h2>Edit your profile</h2>
+        <div class="row">
+        <div class="col-md-6">
+          <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+            <%= devise_error_messages! %>
+            <div><%= f.label :email %><br />
+              <%= f.email_field :email, :autofocus => true, class:"input_field" %>
+            </div>
+            <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+              <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+            <% end %>
+            <div >
+              <%= f.label :firstname %><br>
+              <%= f.text_field :firstname, :autofocus => true, class:"input_field" %>
+            </div>
+            <div>
+              <%= f.label :lastname %><br>
+              <%= f.text_field :lastname, class:"input_field" %>
+            </div>
+            <div>
+              <%= f.label :username %><br>
+              <%= f.text_field :username, class:"input_field" %>
+            </div>
+            <div>
+              <%= f.label :avatar %><br>
+              <%= f.file_field :avatar, class: "centered", :onchange =>"validateFiles(this);", :data => { :max_file_size => 1.megabyte }%><br/><br>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div>
+              <%= f.label :bio %><br>
+              <%= f.text_area :bio, :size => "30x5", class:"input_field" %>
+            </div>
+            <div>
+              <%= f.label :birthdate %><br>
+              <%= f.date_select :birthdate, start_year: (Time.now.year - 100), end_year: (Time.now.year)   %>
+            </div>
+            <div>
+              <%= f.label :location %><br>
+              <%= f.text_field :location, class:"input_field" %>
+            </div>
+          </div>
         </div>
+            <div>
+              <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+              <%= f.password_field :password, :autocomplete => "off", class:"input_field" %>
+            </div>
+            <div>
+              <%= f.label :password_confirmation %><br />
+              <%= f.password_field :password_confirmation, class:"input_field" %>
+            </div>
+            <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+            <%= f.password_field :current_password, class:"input_field" %></div>
 
-        <div>
-          <%= f.label :lastname %><br>
-          <%= f.text_field :lastname %>
-        </div>
+            <div><br><%= f.submit "Update", class:"btn btn-sm btn-primary"  %><%= link_to "Back", :back , class:"btn btn-sm btn-inverse"  %></div>
+          <% end %>
 
-        <div>
-          <%= f.label :username %><br>
-          <%= f.text_field :username %>
-        </div>
+          <h3>Delete my account</h3>
 
-        <div>
-          <%= f.label :avatar %><br>
-          <%= f.file_field :avatar, :onchange =>"validateFiles(this);", :data => { :max_file_size => 1.megabyte }%><br/><br>
-        </div>
-
-        <div>
-          <%= f.label :bio %><br>
-          <%= f.text_area :bio, :size => "32x5" %>
-        </div>
-
-        <div>
-          <%= f.label :birthdate %><br>
-          <%= f.date_select :birthdate, start_year: (Time.now.year - 100), end_year: (Time.now.year)   %>
-        </div>
-
-        <div>
-          <%= f.label :location %><br>
-          <%= f.text_field :location %>
-        </div>
-
-        <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-        <%= f.password_field :password, :autocomplete => "off" %></div>
-
-        <div><%= f.label :password_confirmation %><br />
-        <%= f.password_field :password_confirmation %></div>
-
-        <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-        <%= f.password_field :current_password %></div>
-
-        <div><%= f.submit "Update" %></div>
-      <% end %>
-
-      <h3>Delete my account</h3>
-
-      <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %></p>
-
-      <%= link_to "Back", :back %>
+          <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete, class:"btn btn-sm btn-danger" %></p>
+    </div>
+  </div>
+</div>

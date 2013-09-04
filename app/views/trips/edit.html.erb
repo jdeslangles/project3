@@ -1,6 +1,14 @@
-<h1>Editing trip</h1>
+<% @body_class = "edit_trip" %>
 
-<%= render 'form' %>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <div class="sign_up_form">
+      <h2>Edit your trip details</h2>
 
-<%= link_to 'Show', @trip %> |
-<%= link_to 'Back', trips_path %>
+        <%= render 'form' %>
+
+      <%= link_to 'Show', @trip %>
+      <%= link_to 'Back', :back %>
+    </div>
+  </div>
+</div>

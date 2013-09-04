@@ -6,51 +6,52 @@
 
 <div id="trip_details">
 
-<h2>
-  <%= @marker.name %>
-</h2>
+  <h2>
+    <%= @marker.name %>
+  </h2>
 
-<%  unless @marker.photo.thumb.nil? || @marker.photo.thumb.blank? %>
+  <%  unless @marker.photo.thumb.nil? || @marker.photo.thumb.blank? %>
+    <p>
+      <%=image_tag @marker.photo.thumb %>
+    </p>
+  <% end %>
+
+
+
   <p>
-    <%=image_tag @marker.photo.thumb %>
+    <b>Description:</b>
+    <%= @marker.description %>
   </p>
-<% end %>
 
+  <p>
+    <b>Location:</b>
+    <%= @marker.address %>
+  </p>
 
+  <p  >
+    <b>Latitude:</b>
+    <span id="latitude" ><%= @marker.latitude %></span>
+  </p>
 
-<p>
-  <b>Description:</b>
-  <%= @marker.description %>
-</p>
+  <p>
+    <b>Longitude:</b>
+    <span  id="longitude"><%= @marker.longitude %></span>
+  </p>
 
-<p>
-  <b>Location:</b>
-  <%= @marker.address %>
-</p>
+  <p>
+    <b>Trip:</b>
+    <%= link_to @marker.trip.name, trip_path(@marker.trip_id) %>
+  </p>
 
-<p  >
-  <b>Latitude:</b>
-  <span id="latitude" ><%= @marker.latitude %></span>
-</p>
-
-<p>
-  <b>Longitude:</b>
-  <span  id="longitude"><%= @marker.longitude %></span>
-</p>
-
-<p>
-  <b>Trip:</b>
-  <%= link_to @marker.trip.name, trip_path(@marker.trip_id) %>
-</p>
-
-<p>
-  <b>Traveler:</b>
-  <%= link_to @marker.trip.user.username, user_path(@marker.trip.user_id) %>
-</p>
-
+  <p>
+    <b>Traveler:</b>
+    <%= link_to @marker.trip.user.username, user_path(@marker.trip.user_id) %>
+  </p>
+  <div class="links">
+  <% if can? :manage, @marker %>
+    <%= link_to 'Edit', edit_marker_path(@marker) %>
+  <%end%>
+  <%= link_to 'Back', :back %>
+  </div>
 </div>
 
-<div>
-<%= link_to 'Edit', edit_marker_path(@marker) %> |
-<%= link_to 'Back', markers_path %>
-</div>

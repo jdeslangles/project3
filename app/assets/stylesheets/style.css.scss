@@ -22,6 +22,14 @@ html.sign_in {
     height: 100%;
 }
 
+html.edit_trip {
+    height: 100%;
+}
+
+html.edit_marker {
+    height: 100%;
+}
+
 body.user_page {
   background: transparent;
 }
@@ -72,11 +80,41 @@ body.sign_up {
 
 body.sign_in {
   background: url('taj_mahal.jpg')
-   no-repeat center center fixed;
+   no-repeat center center;
       -webkit-background-size: cover;
       -moz-background-size: cover;
       -o-background-size: cover;
       background-size: cover;
+}
+
+body.edit_profile {
+  background: url('taj_mahal.jpg')
+   no-repeat center center;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      background-attachment: fixed;
+}
+
+body.edit_trip {
+  background: url('taj_mahal.jpg')
+   no-repeat center center;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      background-attachment: fixed;
+}
+
+body.edit_marker {
+  background: url('taj_mahal.jpg')
+   no-repeat center center;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      background-attachment: fixed;
 }
 
 .input_field {
@@ -87,6 +125,11 @@ body.sign_in {
 .links {
   list-style: none;
   text-align: center;
+}
+
+.centered {
+  margin: auto;
+  padding-left: 50px;
 }
 
 /* NAVBAR styling */

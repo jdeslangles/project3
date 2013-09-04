@@ -1,6 +1,14 @@
-<h1>Editing marker</h1>
+<% @body_class = "edit_marker" %>
 
-<%= render 'form' %>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <div class="sign_up_form">
+      <h2>Edit your stop details</h2>
 
-<%= link_to 'Show', @marker %> |
-<%= link_to 'Back', markers_path %>
+        <%= render 'form' %>
+
+      <%= link_to 'Show', @marker %>
+      <%= link_to 'Back', :back %>
+    </div>
+  </div>
+</div>

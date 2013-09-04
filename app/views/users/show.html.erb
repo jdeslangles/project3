@@ -34,9 +34,8 @@
     </div>
     <div id="user_controls">
       <% if can? :update, @user %>
-        <%= link_to 'Edit Profile ', edit_user_registration_path %> |
+        <%= link_to 'Edit Profile ', edit_user_registration_path %>
       <% end %>
-      <%= link_to 'All Travelers', users_path %>
     </div>
   </div>
 
