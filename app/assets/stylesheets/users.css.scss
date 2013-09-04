@@ -29,6 +29,8 @@ $grey: #82756f;
 }
 
 #user_profile h2{
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
   text-align: center;
   font-size: 2.5em;
   margin-top: 0.3em;
@@ -59,11 +61,16 @@ $grey: #82756f;
 }
 
 #trip_map_small h3{
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
   background: $maroon;
   text-align: center;
-  padding: 0.2em;
+  padding: 0.35em;
   margin: 0;
+  text-transform: uppercase;
+  font-size: 18px;
 }
+
 
 #trip_map_small a{
   color: white;
