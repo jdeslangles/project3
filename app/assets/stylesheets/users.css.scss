@@ -26,6 +26,7 @@ $grey: #82756f;
 
 #user_profile p{
   margin-left: 1.35em;
+  margin-right: 1.35em;
 }
 
 #user_profile h2{
@@ -44,19 +45,17 @@ $grey: #82756f;
   text-align: center;
 }
 #user_trips{
-  width: 70%;
-  float:  right;
-  padding-left: 1.25em;
 }
 
 #trip_map_small {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
-#trip_map_small li{
+#trip_map_small {
   float: left;
   height: 300px;
-  width: 250px;
+  width: 200px;
   margin-right: 1em;
 }
 
@@ -71,6 +70,13 @@ $grey: #82756f;
   font-size: 18px;
 }
 
+.map_user_profile {
+  width:200px;
+  height: 200px;
+  // position: absolute;
+  // float:left;
+  // z-index: 0;
+}
 
 #trip_map_small a{
   color: white;
