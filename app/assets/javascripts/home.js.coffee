@@ -49,5 +49,5 @@ $ ->
 
 #  CAROUSEL FUNCTIONALITY
   $('.carousel').carousel
-    interval: 4000
+    interval: 8000
 
