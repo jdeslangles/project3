@@ -61,7 +61,7 @@ html.homepage {
 }
 
 body.sign_up {
-  background: url('sign_up.jpg')
+  background: url('balitemple.jpg')
    no-repeat center center;
       -webkit-background-size: cover;
       -moz-background-size: cover;
@@ -71,7 +71,7 @@ body.sign_up {
 }
 
 body.sign_in {
-  background: url('sign_in.jpg')
+  background: url('taj_mahal.jpg')
    no-repeat center center fixed;
       -webkit-background-size: cover;
       -moz-background-size: cover;
@@ -101,6 +101,10 @@ body.sign_in {
 .navbar-inverse .navbar-nav > li > a:hover,
 .navbar-inverse .navbar-nav > li > a:focus{
   color: $green;
+}
+
+.form-control.input-sm{
+  height: 1.9em;
 }
 
 /* HOME PAGE SEARCH styling */
