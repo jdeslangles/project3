@@ -78,6 +78,7 @@ $ ->
       url: "/markers.json"
       data: dataOptions
       success: (data)->
+        fileString = null
         # add a new marker to the map
         markers_array = window.markers || []
 

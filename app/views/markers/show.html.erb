@@ -10,9 +10,11 @@
   <%= @marker.name %>
 </h2>
 
-<p>
-  <%=image_tag @marker.photo.thumb %>
-</p>
+<%  unless @marker.photo.thumb.nil? || @marker.photo.thumb.blank? %>
+  <p>
+    <%=image_tag @marker.photo.thumb %>
+  </p>
+<% end %>
 
 
 
