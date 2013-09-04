@@ -22,8 +22,24 @@ html.sign_in {
     height: 100%;
 }
 
+body.user_page {
+  background: transparent;
+}
+
 body.homepage {
   background: transparent;
+}
+
+html.user_page{
+   /* Gradients for modern browsers, replace as you see fit */
+  background-image: -moz-linear-gradient(top, black, #7a2949);
+  background-image: -ms-linear-gradient(top, black, #7a2949);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(black), to(#7a2949));
+  background-image: -webkit-linear-gradient(top, black, #7a2949);
+  background-image: -o-linear-gradient(top, black, #7a2949);
+  background-image: linear-gradient(top, black, #7a2949);
+  background-color: #7a2949;
+  background-repeat: no-repeat;
 }
 
 html.homepage {
