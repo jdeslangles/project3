@@ -7,26 +7,40 @@ $grey: #82756f;
 
 
 /* User Profile styling */
-#user_profile_top{
+#user_profile{
   background: $blue;
   height: 30em;
   width: 30%;
+  float:  left;
 }
 
-#user_profile_pic img{
-  display: block;
-  margin: auto;
+#user_profile_pic {
+  text-align: center;
+  padding: 1.35em 1.35em 0em 1.35em;
 }
 
-#user_profile_top p{
+#user_profile p{
   margin-left: 1.35em;
 }
 
-#user_profile_top h2{
+#user_profile h2{
   text-align: center;
   font-size: 2.5em;
+  margin-top: 0.3em;
 }
 
 #user_info{
   margin-bottom: 0;
+
+}
+
+#user_trips{
+  width: 70%;
+  float:  right;
+}
+
+#trip_map_small li{
+  float: left;
+  height: 4em;
+  width: 4em;
 }

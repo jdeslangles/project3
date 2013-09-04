@@ -3,7 +3,7 @@
 <p id="notice"><%= notice %></p>
 
 
-<div id="user_profile_top">
+<div id="user_profile">
   <div id="user_profile_pic"><%=image_tag @user.avatar.thumb.url, class:"img-rounded" %></div>
   <h2>
     <%= @user.username %>
@@ -33,16 +33,14 @@
 </div>
 
 <div id="user_trips">
-  <p>
-    <b>Trips:</b>
-    <ul id="user_trips">
+    <ul id="trip_map_small">
       <% @user.trips.each do |trip| %>
         <li id="trip_<%= trip.id %>">
           <%= link_to trip.name, trip_path(trip.id) %>
         </li>
       <% end %>
     </ul>
-  </p>
+
 </div>
 <div>
   <% if can? :update, @user %>
