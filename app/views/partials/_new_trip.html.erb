@@ -42,9 +42,11 @@
     <%=@trip.name%>
   </p>
 
-  <p class="image">
-
-    </p>
+  <%  unless @trip.cover_photo.thumb.nil? || @trip.cover_photo.thumb.blank? %>
+  <p>
+    <%=image_tag @trip.cover_photo.thumb %>
+  </p>
+  <% end %>
 
   <p class="description">
     <b>Description:</b>
