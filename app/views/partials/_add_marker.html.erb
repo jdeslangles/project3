@@ -1,7 +1,7 @@
 <div id="add_marker_info" style="display: none">
-  <p>
-      Add a marker on your itinerary:
-  </p>
+  <h4>
+      Add a stop to your trip:
+  </h4>
   <%= form_for marker, url: trip_path, html: {id: "add_marker_form"}, method: :post do |f| %>
     <%= hidden_field_tag id="trip_id", @trip.id %>
     <% if marker.errors.any? %>

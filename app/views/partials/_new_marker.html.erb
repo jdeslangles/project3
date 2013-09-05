@@ -1,6 +1,6 @@
 <div id="marker_info" style="display: none">
   <h4>
-      Add a stop on your trip:
+      Add a stop to your trip:
   </h4>
   <%= form_for marker, url: trip_interface_path, html: {id: "create_marker_form"}, method: :post do |f| %>
     <%= hidden_field_tag id="trip_id", "" %>
