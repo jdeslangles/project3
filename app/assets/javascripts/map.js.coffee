@@ -70,13 +70,16 @@ $ ->
       infowindow = new google.maps.InfoWindow
         maxWidth: 200
 
+      # google.maps.event.addListener infowindow, 'domready', ->
+      #   $('#infowindow').parent().parent().parent().find(':nth-child(1) :nth-child(4)').addClass('popup_styling')
+
     # draws markers on map through a loop
       draw_markers = ->
         markers_array = window.markers || []
         for marker in markers_array
           image = "/assets/markermap_icon.png"
           myLatLng = new google.maps.LatLng(marker.latitude, marker.longitude)
-          marker_details = "<h2 id='infowindow'>#{marker.name}</h2><p id='infowindow_description'>#{marker.description.split(' ').slice(0,15).join(' ')}... <div id='infowindow_link'><a href='/markers/#{(marker.id)}'>read full post >> </a></div></p>"
+          marker_details = "<h2 id='infowindow'>#{marker.name}</h2><img src='#{marker.photo.thumb.url}'><p id='infowindow_description'>#{marker.description.split(' ').slice(0,15).join(' ')}... <div id='infowindow_link'><a href='/markers/#{(marker.id)}'>read full post >> </a></div></p>"
           marker = new google.maps.Marker
             position: myLatLng
             map: map

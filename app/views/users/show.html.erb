@@ -14,16 +14,16 @@
         <%= @user.username %>
       </h2>
       <p>
-        <b>Name</b>
+        <b>Name:</b>
         <%= @user.firstname.humanize %>
         <%= @user.lastname.humanize %>
       </p>
       <p>
-        <b>About</b>
+        <b>About:</b>
         <%= @user.bio %>
       </p>
       <p id="user_info">
-        <b>Info</b>
+        <b>Info:</b>
         <ul>
           <li>Location: <%= @user.location %></li>
           <li>Birthday: <%= @user.birthdate.strftime('%d %B %Y')  %></li>
@@ -31,11 +31,12 @@
           <li>Locations visited: <%= @user.markers.count %></li>
         </ul>
       </p>
-    </div>
-    <div id="user_controls">
-      <% if can? :update, @user %>
-        <%= link_to 'Edit Profile ', edit_user_registration_path %>
-      <% end %>
+
+      <div class="links">
+        <% if can? :update, @user %>
+          <%= link_to 'Edit Profile ', edit_user_registration_path %>
+        <% end %>
+      </div>
     </div>
   </div>
 

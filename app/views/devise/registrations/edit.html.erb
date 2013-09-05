@@ -9,22 +9,22 @@
           <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
             <%= devise_error_messages! %>
             <div><%= f.label :email %><br />
-              <%= f.email_field :email, :autofocus => true, class:"input_field" %>
+              <%= f.email_field :email, :autofocus => true, class:"input_field", :placeholder => "Enter a valid email address" %>
             </div>
             <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
               <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
             <% end %>
             <div >
-              <%= f.label :firstname %><br>
-              <%= f.text_field :firstname, class:"input_field" %>
+              <%= f.label :firstname, "First name" %><br>
+              <%= f.text_field :firstname, class:"input_field", :placeholder => "Enter your first name" %>
             </div>
             <div>
-              <%= f.label :lastname %><br>
-              <%= f.text_field :lastname, class:"input_field" %>
+              <%= f.label :lastname, "Last name" %><br>
+              <%= f.text_field :lastname, class:"input_field", :placeholder => "Enter your last name" %>
             </div>
             <div>
               <%= f.label :username %><br>
-              <%= f.text_field :username, class:"input_field" %>
+              <%= f.text_field :username, class:"input_field", :placeholder => "Enter your username" %>
             </div>
             <div>
               <%= f.label :avatar %><br>
@@ -34,7 +34,7 @@
           <div class="col-md-6">
             <div>
               <%= f.label :bio %><br>
-              <%= f.text_area :bio, :size => "30x5", class:"input_field" %>
+              <%= f.text_area :bio, :size => "30x5", class:"input_field", :placeholder => "Tell us about yourself" %>
             </div>
             <div>
               <%= f.label :birthdate %><br>
@@ -42,7 +42,7 @@
             </div>
             <div>
               <%= f.label :location %><br>
-              <%= f.text_field :location, class:"input_field" %>
+              <%= f.text_field :location, class:"input_field", :placeholder => "Where are you from?" %>
             </div>
           </div>
         </div>
@@ -55,15 +55,15 @@
               <%= f.password_field :password_confirmation, class:"input_field" %>
             </div><br>
             <div><%= f.label :current_password %> <br><i>(we need your current password to confirm your changes)</i><br />
-            <%= f.password_field :current_password, class:"input_field" %></div>
+            <%= f.password_field :current_password, class:"input_field", :placeholder => "Password" %></div>
 
             <div><br><%= f.submit "Update", class:"btn btn-sm btn-primary"  %><br>
-              <%= link_to "Back to My Profile", :back , class:"btn btn-sm btn-inverse"  %></div>
+              <%= link_to "Cancel", :back , class:"btn btn-sm btn-inverse"  %></div>
           <% end %>
 
-          <h3>Delete my account</h3>
+          <h3>Unhappy?</h3>
 
-          <p><%= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete, class:"btn btn-sm btn-danger" %></p>
+          <p><%= button_to "Delete my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete, class:"btn btn-sm btn-danger" %></p>
     </div>
   </div>
 </div>

@@ -9,11 +9,10 @@ $grey: #82756f;
 /* User Profile styling */
 
 #user_profile{
-  background: $blue;
+  background-color: rgba(140,36,82,0.6);
   border-radius: 1.25em;
-  padding-bottom: 0.25em;
+  padding-bottom:0.25em;
   margin-bottom: 1em;
-  box-shadow: 0px 0px 15px 0px black;
 }
 
 #user_profile_pic {
@@ -43,20 +42,16 @@ p#user_info{
   margin-bottom: 0;
 }
 
-#user_controls{
-  text-align: center;
-}
-
 #trip_map_small {
   list-style: none;
-  padding: 0;
-  margin: 0;
-}
-#trip_map_small {
   float: left;
-  height: 300px;
+  height: 280px;
   width: 200px;
   margin-right: 1.35em;
+  margin-bottom: 1.35em;
+  padding: 0;
+  box-shadow: 1px 1px 10px 3px black;
+  background-color: $maroon;
 }
 
 #trip_map_small h3{

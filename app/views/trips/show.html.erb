@@ -32,19 +32,22 @@
     </p>
 
     <div id="trip_show_links">
-      <% if can? :manage, @trip.user %>
+      <% if can? :edit, @trip %>
         <button type=button class="btn btn-sm btn-primary" id="add_another_marker_link" >Add Another Stop</button>
       <%end%>
       <p>
-        <% if can? :manage, @trip.user %>
-          <%= link_to 'Edit Trip ', edit_trip_path(@trip) %>
+        <% if can? :edit, @trip %>
+          <%= link_to 'Edit', edit_trip_path(@trip) %> |
+        <%end%>
+        <% if can? :destroy, @trip %>
+          <%= link_to 'Delete', @trip, method: :delete, data: { confirm: 'Are you sure?' } %>
         <%end%>
       </p>
     </div>
 
     <div class="tweet">
-      <p>Loving this trip?<br>Tweet about it!</p>
-      <a href="https://twitter.com/share" class="twitter-share-button" data-lang="en" data-url="http://footsteps.com" data-text="Check out this trip itinerary!" data-count="none" data-hashtags="FootSteps">Tweet</a>
+      <p>Love this trip?<br>Tweet about it!</p>
+      <a href="https://twitter.com/share" class="twitter-share-button" data-lang="en" data-url="http://footsteps-blog.herokuapp.com/" data-text="Check out this awesome trip itinerary!" data-count="none" data-hashtags="FootSteps">Tweet</a>
     </div>
 
 

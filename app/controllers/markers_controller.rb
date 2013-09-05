@@ -53,7 +53,7 @@ class MarkersController < ApplicationController
       if marker.save
         render json: marker
       else
-        render json: {error: "Something went wrong"}, status: 422
+        render json: marker.errors.to_json, status: 422
       end
     else
       render json: {error: "Something went wrong"}, status: 422
@@ -83,7 +83,7 @@ class MarkersController < ApplicationController
     @marker.destroy
 
     respond_to do |format|
-      format.html { redirect_to markers_url }
+      format.html { redirect_to root_url }
       format.json { head :no_content }
     end
   end

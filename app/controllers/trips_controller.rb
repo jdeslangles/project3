@@ -73,7 +73,7 @@ class TripsController < ApplicationController
     if @trip.save
         render json: @trip
     else
-      render json: {error: "something went wrong"}, status: 422
+      render json: @trip.errors.to_json, status: 422
     end
   end
 
@@ -100,7 +100,7 @@ class TripsController < ApplicationController
     @trip.destroy
 
     respond_to do |format|
-      format.html { redirect_to trips_url }
+      format.html { redirect_to root_url }
       format.json { head :no_content }
     end
   end
