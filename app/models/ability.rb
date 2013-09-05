@@ -8,17 +8,17 @@ class Ability
     elsif user.role? "registered"
       can [:show, :trips], User
 
-      can [:update, :destroy, :my_profile], User do |u|
+      can [:edit, :update, :destroy, :my_profile], User do |u|
         u.id == user.id
       end
 
       can [:trip_interface, :new, :create, :show], Trip
-      can [:update, :destroy], Trip do |t|
+      can [:edit, :update, :destroy], Trip do |t|
         t.user == user
       end
 
       can [:trip_interface, :new, :create, :show], Marker
-      can [:update, :destroy], Marker do |m|
+      can [:edit, :update, :destroy], Marker do |m|
         m.trip.user == user
       end
 

@@ -65,7 +65,7 @@ class TripsController < ApplicationController
     if @trip.save
         render json: @trip
     else
-      render json: {error: "something went wrong"}, status: 422
+      render json: @trip.errors.to_json, status: 422
     end
   end
 

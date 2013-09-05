@@ -41,10 +41,9 @@ $ ->
         $("#trip_id").val(data.id)
         $("#trip_info").show()
         $("#marker_info").show()
-      error: (xhr) ->
-        errors = $.parseJSON(xhr.responseText).errors
-        if errors?
-          flash_error errors
+      error: (jqXHR, textStatus, errorThrown) ->
+        for error, value of jqXHR.responseJSON
+          alert "#{error} #{value}"
 
 
   $('#marker_photo').change (event)->
@@ -82,7 +81,6 @@ $ ->
         # add a new marker to the map
         markers_array = window.markers || []
 
-
         if (window.map != undefined)
           #TODO: loop over the markers and add to bounds
 
@@ -109,9 +107,6 @@ $ ->
             strokeColor: "#7a2949"
             strokeWeight: 2
 
-
-
-
         $("#marker_name").val('')
         $("#marker_description").val('')
         $("#marker_address").val('')
@@ -119,10 +114,9 @@ $ ->
         $("#latitude").val('')
         $("#marker_photo").val('')
 
-      error: (xhr)->
-        errors = $.parseJSON(xhr.responseText).errors
-        if errors?
-          flash_error errors
+      error: (jqXHR, textStatus, errorThrown) ->
+        for error, value of jqXHR.responseJSON
+          alert "#{error} #{value}"
 
 
 
