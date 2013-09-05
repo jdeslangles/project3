@@ -13,12 +13,12 @@
 
   <div class="field">
     <%= f.label :name %><br />
-    <%= text_field_tag :name, params[:name], :size => "27x1", class:"input_field" %>
+    <%= text_field_tag :name, params[:name], :size => "27x1", class:"input_field", :placeholder => "Name your trip" %>
   </div>
 
   <div class="field">
     <%= f.label :description %><br />
-    <%= f.text_area :description, :size => "22x5", class:"input_field" %>
+    <%= f.text_area :description, :size => "22x5", class:"input_field", :placeholder => "Enter a brief description" %>
   </div>
 
   <div class="field">
