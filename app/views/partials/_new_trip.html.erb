@@ -28,7 +28,7 @@
 
   <div class="actions">
     <br>
-    <%= f.submit "Create trip", class:"btn btn-sm btn-primary"%>
+    <%= f.submit "Create Trip", class:"btn btn-sm btn-primary"%>
     <br>
     <br>
   </div>
@@ -38,9 +38,10 @@
 
 <div id="trip_info" style="display: none">
 
-  <p class="name">
+  <h2 class="name">
     <%=@trip.name%>
-  </p>
+  </h2>
+
     <p class="image">
       <%  unless @trip.cover_photo.thumb.nil? || @trip.cover_photo.thumb.blank? %>
         <%=image_tag @trip.cover_photo.thumb %>

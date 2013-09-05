@@ -57,7 +57,8 @@
             <div><%= f.label :current_password %> <br><i>(we need your current password to confirm your changes)</i><br />
             <%= f.password_field :current_password, class:"input_field" %></div>
 
-            <div><br><%= f.submit "Update", class:"btn btn-sm btn-primary"  %><%= link_to "Back to my profile", :back , class:"btn btn-sm btn-inverse"  %></div>
+            <div><br><%= f.submit "Update", class:"btn btn-sm btn-primary"  %><br>
+              <%= link_to "Back to My Profile", :back , class:"btn btn-sm btn-inverse"  %></div>
           <% end %>
 
           <h3>Delete my account</h3>
