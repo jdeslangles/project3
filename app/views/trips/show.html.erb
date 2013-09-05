@@ -37,7 +37,8 @@
       <%end%>
       <p>
         <% if can? :manage, @trip.user %>
-          <%= link_to 'Edit Trip ', edit_trip_path(@trip) %>
+          <%= link_to 'Edit', edit_trip_path(@trip) %> |
+          <%= link_to 'Delete', @trip, method: :delete, data: { confirm: 'Are you sure?' } %>
         <%end%>
       </p>
     </div>
