@@ -32,12 +32,14 @@
     </p>
 
     <div id="trip_show_links">
-      <% if can? :manage, @trip.user %>
+      <% if can? :edit, @trip %>
         <button type=button class="btn btn-sm btn-primary" id="add_another_marker_link" >Add Another Stop</button>
       <%end%>
       <p>
-        <% if can? :manage, @trip.user %>
+        <% if can? :edit, @trip %>
           <%= link_to 'Edit', edit_trip_path(@trip) %> |
+        <%end%>
+        <% if can? :destroy, @trip %>
           <%= link_to 'Delete', @trip, method: :delete, data: { confirm: 'Are you sure?' } %>
         <%end%>
       </p>

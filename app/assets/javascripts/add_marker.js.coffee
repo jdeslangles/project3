@@ -40,3 +40,6 @@ $ ->
       data: dataOptions
       success:->
         location.reload()
+      error: (jqXHR, textStatus, errorThrown) ->
+        for error, value of jqXHR.responseJSON
+          alert "#{error} #{value}"
