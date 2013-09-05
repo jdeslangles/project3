@@ -10,5 +10,7 @@ Footsteps was created to encourage people to seek adventure and explore our amaz
 It is an application that makes sharing and finding travel itineraries easy and beautiful. Users
 can create their very own travelling journeys and record each stop along the way. Footsteps
 utilizes the GoogleMaps API to allow users to upload text and photos directly to the map making each trip
-visually understandable. 
+visually understandable. It is built with AJAX to allow for a single interface with smooth transitions.
+
+View the project on heroku: link:heroku
 
