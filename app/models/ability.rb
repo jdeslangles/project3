@@ -6,15 +6,25 @@ class Ability
     if user.role? "admin"
       can :manage, :all
     elsif user.role? "registered"
-      can :manage, User do |u|
+      can [:show, :trips], User
+
+      can [:update, :destroy, :my_profile], User do |u|
         u.id == user.id
       end
-      can :read, :all
-      can :manage, Trip
-      can :manage, Marker
+
+      can [:trip_interface, :new, :create, :show], Trip
+      can [:update, :destroy], Trip do |t|
+        t.user == user
+      end
+
+      can [:trip_interface, :new, :create, :show], Marker
+      can [:update, :destroy], Marker do |m|
+        m.trip.user == user
+      end
+
     else
-      can :read, :all
-      can :create, User
+      can :show, :all
+      can [:create, :trips], User
     end
   end
 end
