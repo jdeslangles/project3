@@ -290,7 +290,7 @@ div#infowindow_link{
 
 #trip_details{
   margin-top: -30px;
-  padding-top: 30px;
+  padding-top: 18px;
   padding-left: 10px;
   padding-right: 0;
   background-color: black;
@@ -313,21 +313,13 @@ div#infowindow_link{
   text-align:center;
 }
 
-// #trip_show{
-//   padding-left: 10px;
-//   padding-right: 0;
-//   background-color: black;
-//   color: grey;
-//   z-index: 1;
-//   position: absolute;
-//   right: 0;
-//   min-width: 230px;
-//   width: 25%;
-//   height: 100%;
-//   box-shadow: -1px 0px 10px 3px black;
-//   font-weight: normal;
-//   font-style: none;
-// }
+h2.name{
+  margin-top: 0;
+}
+
+#trip_details h2{
+  margin-top: 0;
+}
 
 #add_marker_info{
   margin-top: -30px;
@@ -347,7 +339,9 @@ div#infowindow_link{
   font-style: none;
 }
 
-
+#marker_info h4{
+  margin-bottom: 0;
+}
 
 /* SIGN UP/SIGN IN Styling */
 

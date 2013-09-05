@@ -1,7 +1,7 @@
 <div id="marker_info" style="display: none">
-  <p>
-      Add a marker on your itinerary:
-  </p>
+  <h4>
+      Add a stop on your trip:
+  </h4>
   <%= form_for marker, url: trip_interface_path, html: {id: "create_marker_form"}, method: :post do |f| %>
     <%= hidden_field_tag id="trip_id", "" %>
     <% if marker.errors.any? %>
@@ -23,7 +23,7 @@
 
     <div class="field">
       <%= f.label :description %><br />
-      <%= f.text_area :description, :size => "29x5", class:"input_field" %>
+      <%= f.text_area :description, :size => "29x4", class:"input_field" %>
     </div>
 
     <div class="field">
@@ -41,10 +41,10 @@
 
     <div class="actions">
       <br>
-      <%= f.submit "Create Marker", class:"btn btn-sm btn-primary" %>
+      <%= f.submit "Add Stop", class:"btn btn-sm btn-primary" %>
     </div>
   <% end %>
 
-  <p>Is your trip complete?</p>
+  <h5>Is your trip complete?</h5>
   <%= link_to "Yep, I'm done!", "", class:"btn btn-sm btn-primary", id: "leave_trip_edition"%>
 </div>
