@@ -11,7 +11,12 @@ $ ->
       center: new google.maps.LatLng(0, 0)
       mapTypeId: google.maps.MapTypeId.ROADMAP
       scrollwheel: false
-
+      panControl: false,
+      zoomControl: false,
+      mapTypeControl: false,
+      scaleControl: false,
+      streetViewControl: false,
+      overviewMapControl: false
     user_id = $("body").attr("data-user-id")
 
     $.getJSON "/users/" + user_id + "/trips.json", (data) ->

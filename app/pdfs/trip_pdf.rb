@@ -14,3 +14,7 @@ class TripPdf
     @pdf.render
   end
 end
+
+
+
+# http://maps.googleapis.com/maps/api/staticmap?center=Williamsburg,Brooklyn,NY&zoom=3&size=400x400&markers=color:blue%7Clabel:S%7C11211%7C11206%7C11222&sensor=false&path=color:0x0000ff|weight:5|40.737102,-73.990318|40.749825,-73.987963|40.752946,-73.987384|40.755823,-73.986397
