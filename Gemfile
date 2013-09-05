@@ -11,6 +11,7 @@ gem 'devise'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'cancan'
+gem 'prawn'
 
 group :development do
   # gem 'rspec-rails'

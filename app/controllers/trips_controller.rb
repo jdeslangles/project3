@@ -29,6 +29,14 @@ class TripsController < ApplicationController
           :markers => @markers
           }
         }
+      format.pdf do
+        pdf = TripPdf.new @trip
+        send_data(pdf.render, {
+          filename: "#{@trip.name}.pdf",
+          type: "application/pdf",
+          disposition: "inline"
+          })
+      end
     end
   end
 
