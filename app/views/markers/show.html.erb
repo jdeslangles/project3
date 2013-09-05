@@ -49,7 +49,8 @@
   </p>
   <div class="links">
   <% if can? :manage, @marker %>
-    <%= link_to 'Edit', edit_marker_path(@marker) %>
+    <%= link_to 'Edit', edit_marker_path(@marker) %> |
+    <%= link_to 'Delete', @marker, method: :delete, data: { confirm: 'Are you sure?' } %> |
   <%end%>
   <%= link_to 'Back', :back %>
   </div>
